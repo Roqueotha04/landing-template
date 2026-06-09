@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Estudio Ve — Landing Template
 
-## Getting Started
+Template base para landings de negocios. Single-page, bilingüe (es/en), export estático listo para Vercel.
 
-First, run the development server:
+**Stack:** Next.js 16 (App Router) · React 19 · Tailwind CSS 4 · TypeScript.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Flujo por cliente
+
+1. **Clonar** este repo (o usarlo como template en GitHub).
+2. **Editar `config/site.config.ts`** — único archivo de contenido. Nombre, contacto, WhatsApp, secciones, textos (es + en), SEO. Ver checklist abajo.
+3. **Tema** — colores en `app/globals.css` (`:root`); fuentes en `app/layout.tsx` (`next/font/google`).
+4. **Verificar** — `pnpm build`.
+5. **Push a un repo nuevo** del cliente.
+6. **Deploy en Vercel** — conectar el repo; cada push a `main` redeploya.
+
+## Checklist de edición
+
+- [ ] `site.url` (necesario para sitemap/OG) y `business.*` (nombre, phone, whatsapp, email, address, mapUrl, redes, horarios).
+- [ ] `offerings.kind`: `"services"` (sin precio) o `"products"` (agregar `price` a cada item).
+- [ ] Completar todos los campos `Localized` en `es` y `en` (hero, offerings, about, contact, seo).
+- [ ] `sections`: activar / reordenar / quitar secciones.
+- [ ] Colores en `app/globals.css` (`:root`). Fuentes en `app/layout.tsx`.
+- [ ] `npm run build` sin errores.
+
+> Todo texto visible es `{ es, en }`. Nunca hardcodear contenido, colores ni links en los componentes.
+
+## Estructura
+
+```
+config/      site.config.ts (editable) · site.types.ts · i18n.ts
+lib/         i18n.ts · whatsapp.ts
+hooks/       useLanguage.ts · useLocalStorage.ts
+components/  providers/ · ui/ · layout/ · sections/ · seo/
+app/         layout.tsx · page.tsx · sitemap.ts · robots.ts · globals.css
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Las rutas en `app/` solo componen; el contenido vive en `config/` y la UI en `components/`. `app/page.tsx` renderiza las secciones en el orden de `siteConfig.sections`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Comandos
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+pnpm install
+pnpm dev      # desarrollo en http://localhost:3000
+pnpm build    # export estático a /out
+```
 
-## Learn More
+Gestor de paquetes: **pnpm** (fijado en `package.json` → `packageManager`).
 
-To learn more about Next.js, take a look at the following resources:
+## Documentación interna
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `AGENTS.md` — reglas de stack, arquitectura y clean code.
+- `.claude/skills/landing-generator/` — workflow + schema del config + specs de componentes.
+- `.claude/skills/frontend-design/` — principios de diseño.
