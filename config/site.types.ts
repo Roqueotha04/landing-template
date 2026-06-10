@@ -41,6 +41,7 @@ export interface Brand {
 }
 
 export interface HeroContent {
+  eyebrow?: Localized;
   title: Localized;
   subtitle: Localized;
   ctaText: Localized;
@@ -56,7 +57,9 @@ export interface OfferingsContent {
 
 export interface AboutContent {
   title: Localized;
-  body: Localized;
+  eyebrow?: Localized;
+  body: Localized<string[]>;
+  highlights?: { value: string; label: Localized }[];
   image?: string;
 }
 

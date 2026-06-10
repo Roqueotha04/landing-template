@@ -18,6 +18,13 @@ interface UiStrings {
     email: Localized;
     address: Localized;
     hours: Localized;
+    detailsTitle: Localized;
+    formTitle: Localized;
+    nameLabel: Localized;
+    namePlaceholder: Localized;
+    messageLabel: Localized;
+    messagePlaceholder: Localized;
+    submit: Localized;
   };
   footer: {
     rights: Localized;
@@ -48,6 +55,16 @@ export const ui: UiStrings = {
     email: { es: "Email", en: "Email" },
     address: { es: "Dirección", en: "Address" },
     hours: { es: "Horarios", en: "Hours" },
+    detailsTitle: { es: "Hablemos", en: "Let's talk" },
+    formTitle: { es: "Dejanos tu mensaje", en: "Leave us a message" },
+    nameLabel: { es: "Nombre", en: "Name" },
+    namePlaceholder: { es: "¿Cómo te llamás?", en: "What's your name?" },
+    messageLabel: { es: "Mensaje", en: "Message" },
+    messagePlaceholder: {
+      es: "Contanos qué querés pedir…",
+      en: "Tell us what you'd like to order…",
+    },
+    submit: { es: "Enviar por WhatsApp", en: "Send via WhatsApp" },
   },
   footer: {
     rights: { es: "Todos los derechos reservados.", en: "All rights reserved." },

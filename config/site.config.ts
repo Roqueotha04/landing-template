@@ -74,14 +74,29 @@ export const siteConfig: SiteConfig = {
     ],
   },
   about: {
+    eyebrow: {
+      es: "Nuestra historia",
+      en: "Our story",
+    },
     title: {
       es: "Sobre nosotros",
       en: "About us",
     },
     body: {
-      es: "Tres o cuatro oraciones que cuenten el origen o el porqué del negocio. Que suene humano, no corporativo.",
-      en: "Three or four sentences telling the origin or the why behind the business. Human, not corporate.",
+      es: [
+        "Primer párrafo: el origen o el porqué del negocio. Que suene humano, no corporativo.",
+        "Segundo párrafo: la promesa o el valor que ofrecés al cliente, en tono cercano.",
+      ],
+      en: [
+        "First paragraph: the origin or the why behind the business. Human, not corporate.",
+        "Second paragraph: the promise or value you offer the customer, in a warm tone.",
+      ],
     },
+    highlights: [
+      { value: "10+", label: { es: "Años de experiencia", en: "Years of experience" } },
+      { value: "500+", label: { es: "Clientes felices", en: "Happy clients" } },
+      { value: "100%", label: { es: "Compromiso", en: "Commitment" } },
+    ],
   },
   contact: {
     title: {

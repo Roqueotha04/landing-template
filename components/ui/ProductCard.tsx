@@ -8,26 +8,28 @@ export function ProductCard({ item }: { item: Offering }) {
   const { t } = useLanguage();
 
   return (
-    <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-foreground/10 transition-colors hover:border-primary/40">
-      <div className="relative aspect-square w-full bg-accent">
+    <article className="group flex h-full flex-col overflow-hidden rounded-3xl bg-white shadow-lg transition-transform duration-300 hover:-translate-y-1.5">
+      <div className="relative aspect-square w-full overflow-hidden bg-accent">
         {item.image && (
           <Image
             src={item.image}
             alt={t(item.name)}
             fill
-            sizes="(max-width: 768px) 80vw, 320px"
-            className="object-cover"
+            sizes="(max-width: 768px) 68vw, 300px"
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
           />
         )}
+        {item.price && (
+          <span className="absolute right-3 top-3 inline-flex rounded-full bg-secondary px-3 py-1 text-sm font-bold text-white shadow-md">
+            {item.price}
+          </span>
+        )}
       </div>
-      <div className="flex flex-1 flex-col p-5">
-        <h3 className="font-heading text-lg font-semibold text-foreground">
+      <div className="flex flex-1 flex-col p-4">
+        <h3 className="font-heading text-base font-bold text-primary">
           {t(item.name)}
         </h3>
         <p className="mt-1 flex-1 text-sm text-foreground/70">{t(item.description)}</p>
-        {item.price && (
-          <span className="mt-3 text-lg font-semibold text-primary">{item.price}</span>
-        )}
       </div>
     </article>
   );
