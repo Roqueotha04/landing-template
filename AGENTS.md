@@ -9,6 +9,8 @@ This version has breaking changes — APIs, conventions, and file structure may 
 # Landing Generator — Estudio Ve
 
 > **Precedencia ante conflicto:** las skills (`.claude/skills/`) mandan primero, luego `CLAUDE.md`, y por último este `AGENTS.md`.
+>
+> **Precedencia entre skills de diseño:** para cualquier landing de Estudio Ve, el mandato del dueño manda — `landing-generator` y las *standing defaults* de `frontend-design` ganan ante cualquier conflicto. `impeccable` y `design-taste-frontend` son **complementarias, no autoridades**: se usan como checklist de calidad/anti-slop (contraste, jerarquía, CTAs, layout, copy), **nunca** como fuente de paleta, motion, fuentes, stack ni dependencias. En concreto, **ignorar** de `design-taste-frontend`: su default de paleta neutra (acá la paleta es colorida 60/30/10 del logo), su empuje a GSAP/scroll-hijack/marquees (acá Framer Motion sutil, sin GSAP), su anti-serif (acá los presets eligen la fuente, incl. serif), y sus instalaciones de librerías (acá versiones congeladas y export estático).
 
 ## Regla #0 — Clean code, sin excepciones
 El clean code se prioriza **siempre**, por encima de la velocidad o la conveniencia. Nunca se deja de lado por ningún motivo:
@@ -104,3 +106,4 @@ Cada cliente elige un estilo; se aplica vía las variables de `:root` en `app/gl
 ## Skills disponibles
 - `landing-generator`: estructura, schema del config y especificaciones de componentes.
 - `frontend-design`: principios de diseño, planificación visual y autocrítica.
+- `impeccable` · `design-taste-frontend`: solo checklist de calidad/anti-slop (ver precedencia entre skills arriba). No dictan paleta, motion, fuentes ni dependencias en este proyecto.
