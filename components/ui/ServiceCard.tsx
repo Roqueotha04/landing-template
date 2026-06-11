@@ -11,9 +11,9 @@ export function ServiceCard({ item }: { item: Offering }) {
   return (
     <Link
       href={`/oferta/${offeringSlug(item)}`}
-      className="flex h-full flex-col rounded-2xl border border-foreground/10 p-5 transition-colors hover:border-primary/40"
+      className="group flex h-full flex-col rounded-2xl border border-foreground/10 p-5 transition-colors hover:border-primary/40"
     >
-      <h3 className="font-heading text-lg font-semibold text-foreground">
+      <h3 className="font-heading text-lg font-semibold text-foreground group-hover:underline">
         {t(item.name)}
       </h3>
       <p className="mt-2 flex-1 text-sm text-foreground/70">{t(item.description)}</p>

@@ -31,7 +31,7 @@ export function ProductCard({ item }: { item: Offering }) {
         )}
       </div>
       <div className="flex flex-1 flex-col p-4">
-        <h3 className="font-heading text-base font-bold text-primary">
+        <h3 className="font-heading text-base font-bold text-primary group-hover:underline">
           {t(item.name)}
         </h3>
         <p className="mt-1 flex-1 text-sm text-foreground/70">{t(item.description)}</p>

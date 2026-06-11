@@ -28,13 +28,13 @@ export function Offerings() {
 
       <div
         ref={scrollRef}
-        className="mt-8 -mx-6 flex snap-x snap-proximity scroll-px-6 gap-4 overflow-x-auto px-6 pb-4 select-none md:mx-auto md:grid md:max-w-[52rem] md:grid-cols-3 md:gap-6 md:overflow-visible md:px-0 md:pb-0 md:scroll-px-0 md:cursor-auto md:select-auto cursor-grab active:cursor-grabbing [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        className="mt-8 -mx-6 flex snap-x snap-proximity scroll-px-6 gap-8 overflow-x-auto px-6 pb-4 select-none md:mx-auto md:grid md:max-w-[58rem] md:grid-cols-3 md:gap-12 md:overflow-visible md:px-0 md:pb-0 md:scroll-px-0 md:cursor-auto md:select-auto cursor-grab active:cursor-grabbing [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
       >
         {offerings.items.map((item, index) => (
           <Reveal
             key={item.name.es}
             delay={index * 0.04}
-            className="h-full w-[48vw] shrink-0 snap-start sm:w-[30vw] md:w-auto"
+            className="h-full w-[52vw] shrink-0 snap-start sm:w-[32vw] md:w-auto"
           >
             <Card item={item} />
           </Reveal>
