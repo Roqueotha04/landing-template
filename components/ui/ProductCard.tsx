@@ -1,14 +1,19 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import type { Offering } from "@/config/site.types";
 import { useLanguage } from "@/hooks/useLanguage";
+import { offeringSlug } from "@/lib/slug";
 
 export function ProductCard({ item }: { item: Offering }) {
   const { t } = useLanguage();
 
   return (
-    <article className="group flex h-full flex-col overflow-hidden rounded-3xl bg-white shadow-lg transition-transform duration-300 hover:-translate-y-1.5">
+    <Link
+      href={`/oferta/${offeringSlug(item)}`}
+      className="group flex h-full flex-col overflow-hidden rounded-3xl bg-white shadow-lg transition-transform duration-300 hover:-translate-y-1.5"
+    >
       <div className="relative aspect-square w-full overflow-hidden bg-accent">
         {item.image && (
           <Image
@@ -31,6 +36,6 @@ export function ProductCard({ item }: { item: Offering }) {
         </h3>
         <p className="mt-1 flex-1 text-sm text-foreground/70">{t(item.description)}</p>
       </div>
-    </article>
+    </Link>
   );
 }

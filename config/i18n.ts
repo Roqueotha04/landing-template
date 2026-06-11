@@ -13,6 +13,15 @@ interface UiStrings {
     cta: Localized;
     aria: Localized;
   };
+  offerings: {
+    viewAll: Localized;
+  };
+  offeringDetail: {
+    back: Localized;
+    addToCart: Localized;
+    requestService: Localized;
+    whatsappIntro: Localized;
+  };
   contact: {
     phone: Localized;
     email: Localized;
@@ -29,6 +38,13 @@ interface UiStrings {
   footer: {
     rights: Localized;
     follow: Localized;
+    sections: Localized;
+    legal: Localized;
+    privacy: Localized;
+    terms: Localized;
+    cookies: Localized;
+    designedBy: Localized;
+    agencyTagline: Localized;
   };
 }
 
@@ -50,6 +66,15 @@ export const ui: UiStrings = {
     cta: { es: "Escribinos por WhatsApp", en: "Message us on WhatsApp" },
     aria: { es: "Abrir chat de WhatsApp", en: "Open WhatsApp chat" },
   },
+  offerings: {
+    viewAll: { es: "Ver todos", en: "View all" },
+  },
+  offeringDetail: {
+    back: { es: "Volver", en: "Back" },
+    addToCart: { es: "Agregar al carrito", en: "Add to cart" },
+    requestService: { es: "Solicitar servicio", en: "Request service" },
+    whatsappIntro: { es: "¡Hola! Me interesa:", en: "Hi! I'm interested in:" },
+  },
   contact: {
     phone: { es: "Teléfono", en: "Phone" },
     email: { es: "Email", en: "Email" },
@@ -69,5 +94,15 @@ export const ui: UiStrings = {
   footer: {
     rights: { es: "Todos los derechos reservados.", en: "All rights reserved." },
     follow: { es: "Seguinos", en: "Follow us" },
+    sections: { es: "Secciones", en: "Sections" },
+    legal: { es: "Legal", en: "Legal" },
+    privacy: { es: "Privacidad", en: "Privacy" },
+    terms: { es: "Términos", en: "Terms" },
+    cookies: { es: "Cookies", en: "Cookies" },
+    designedBy: { es: "Diseñado por", en: "Designed by" },
+    agencyTagline: {
+      es: "Agencia de Desarrollo de Software",
+      en: "Software Development Agency",
+    },
   },
 };

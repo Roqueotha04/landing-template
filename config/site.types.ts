@@ -13,6 +13,7 @@ export interface Offering {
   description: Localized;
   price?: string;
   image?: string;
+  slug?: string;
 }
 
 export interface SiteMeta {
