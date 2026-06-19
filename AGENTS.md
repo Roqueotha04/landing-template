@@ -71,6 +71,9 @@ Mover a `public/` solo las que se usan. Toda imagen lleva `alt` descriptivo.
 - Componentes consumen `useLanguage()` → `{ locale, t, toggleLocale }`. `t(localized)` resuelve al idioma actual.
 
 ## Componentes
+- **Reutilizar siempre los componentes ya programados** (`Section`, `Button`, `SectionHeading`, `Reveal`, `WhatsAppButton`, etc.). Crear uno nuevo solo si realmente no existe el que se necesita.
+- **Listas de elementos → `grid`** por defecto; usar `flex` solo cuando sea muy evidente que corresponde.
+- **En mobile, las listas usan carrusel con overflow en X siempre** (scroll horizontal con snap), no se apilan en una columna larga.
 - Por el toggle de idioma en cliente, las secciones que muestran texto son Client Components (`"use client"`).
 - `Section`, `Button`, `JsonLd` no usan hooks → quedan sin directiva (shared/server). Si se elige Server Component deliberadamente, justificarlo con un comentario breve (única excepción a "sin comentarios").
 
