@@ -77,7 +77,7 @@ Tomar siempre la decisión que mejore el rendimiento: lazy loading, optimizació
 
 ## Estilos disponibles (presets)
 Cada cliente elige un estilo; se aplica vía las variables de `:root` en `app/globals.css` (colores) y el import de fuentes en `app/layout.tsx`. No hardcodear estilos por componente.
-- **Futuristic**: neón, fondos oscuros, glow, `Space Grotesk`.
+- **Futuristic**: oscuro con **profundidad y estilo**, no AI-slop. Acento neón **muy puntual** (un solo color, solo en CTAs/detalles), apoyado en gradientes sutiles, capas/glass, sombras suaves y fuerte contraste tipográfico. Evitar el glow saturado en todos lados y los multicolores neón genéricos. `Space Grotesk`.
 - **Minimalist**: pastel, mucho espacio en blanco, sin sombras, `DM Sans`.
 - **Elegant**: negro y dorado, headings serif, `Playfair Display`.
 - **Fresh**: verde, bordes redondeados, amigable, `Nunito`.

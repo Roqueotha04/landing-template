@@ -44,7 +44,7 @@
 - SEO: title, description, keywords y JSON-LD de negocio local.
 
 ## Presets de estilo
-- **Futuristic** — neón, fondos oscuros, glow, `Space Grotesk`.
+- **Futuristic** — oscuro con profundidad y estilo (no neón genérico): acento neón puntual, gradientes sutiles, glass/capas, sombras suaves, `Space Grotesk`.
 - **Minimalist** — pastel, mucho espacio en blanco, sin sombras, `DM Sans`.
 - **Elegant** — negro y dorado, headings serif, `Playfair Display`.
 - **Fresh** — verde, bordes redondeados, amigable, `Nunito`.
