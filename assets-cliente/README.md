@@ -9,14 +9,16 @@ extraigo la paleta si lo pedís en el brief.
 El nombre me dice el rol de cada imagen, así no tengo que preguntarte:
 
 ```
-logo.png            → logo del negocio
-hero.jpg            → fondo del hero (la foto fuerte)
-about.jpg           → foto de la sección "Sobre nosotros"
-oferta-1.jpg        → imagen del 1er servicio/producto (mismo orden que el brief)
+logo.png            → logo del negocio (Navbar/Footer)
+hero.jpg            → sección Hero (la foto fuerte)
+nosotros.jpg        → sección "Nosotros / Quiénes somos" (alias: about.jpg)
+oferta-1.jpg        → imagen del 1er servicio/producto/promo, sección del medio (mismo orden que el brief)
 oferta-2.jpg
 oferta-3.jpg
 paleta/             → fotos extra de las que querés que saque colores (opcional)
 ```
+
+**Las leo y las ubico sí o sí**: cada imagen va a la sección que indica su nombre; no se ignoran.
 
 ## Notas
 - Formatos: `.png`, `.jpg`/`.jpeg`, `.webp`, `.svg`.
