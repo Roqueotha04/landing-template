@@ -54,7 +54,7 @@ These are typed and safe to fill, but **the base components don't all render the
 ## Per-client checklist
 
 1. `site.url`, `business.*` (name, phone, whatsapp, email, address, mapUrl, socials, hours).
-2. `offerings.kind`: `"services"` (cards without price) or `"products"` (add `price` to each item).
+2. Web type: `"services"` (cards without price), `"products"` (add `price`), or **`"promocional"`** — no grid/cards; build an aesthetic composition from the client's images + text (alternating image/text blocks, full-bleed, overlays, big type), no listing or prices. The middle section shows the promo images instead of the `Offerings` grid. Still responsive and reuses existing components.
 3. Fill all `Localized` fields in `es` and `en` (hero, offerings, about, contact, seo).
 4. `sections`: reorder or remove sections (e.g. drop `"about"`).
 5. Brand colors/fonts → `app/globals.css` `:root` variables (NOT the config). Fonts → `app/layout.tsx`.

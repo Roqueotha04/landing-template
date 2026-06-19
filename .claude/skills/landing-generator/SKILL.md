@@ -30,7 +30,7 @@ Need these inputs. If any required field is missing, ask once for all of them:
 |---|---|---|
 | Business name | ✅ | "Peluquería Sol" |
 | Industry/category | ✅ | "peluquería", "restaurante", "taller" |
-| Offerings kind | ✅ | "services" or "products" |
+| Web type | ✅ | "services", "products", or "promocional" |
 | Items to showcase (3-6) | ✅ | "Corte, Color, Brushing, Alisado" (+ prices if products) |
 | Brand color | ✅ | "#E91E63" or "rosa" |
 | Phone / WhatsApp | ✅ | "+54 223 555-1234" |

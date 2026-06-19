@@ -46,6 +46,11 @@ app/         layout.tsx · page.tsx · sitemap.ts · robots.ts · globals.css
 - `app/page.tsx` recorre `siteConfig.sections` y renderiza cada sección desde un registro `SectionId → componente`. Activar/desactivar/reordenar secciones = editar ese array en el config.
 - Las secciones usan `id` (`hero`, `offerings`, `about`, `contact`) para el scroll suave desde el Navbar.
 
+## Tipos de web
+- **Servicios** (`offerings.kind: "services"`): tarjetas sin precio.
+- **Productos** (`offerings.kind: "products"`): tarjetas con `price`.
+- **Promocional**: web que **no** usa grid de productos/servicios ni cards. Su único objetivo es lucir: se arma una composición estética **solo con las imágenes que entrega el cliente + texto** (bloques imagen/texto alternados, full-bleed, overlays, tipografía grande). Nada de listados ni precios. La sección del medio muestra las imágenes promocionales en lugar del grid de `Offerings`. Sigue siendo responsive y reutiliza los componentes existentes (`Section`, `Reveal`, etc.).
+
 ## Configuración y contenido
 - **Todo el contenido del negocio sale de `config/site.config.ts`.** Nunca hardcodear texto, colores, números ni links en componentes.
 - Tipos en `config/site.types.ts`. No se editan al armar un cliente.

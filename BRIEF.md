@@ -18,7 +18,8 @@
 - Horarios:                  (opcional)
 
 ## OFERTA
-- ¿Servicios o productos?:   ✅
+- Tipo de web:               ✅  → servicios / productos / promocional
+                                   (promocional = solo imágenes + texto, sin grid ni cards)
 - Items (3 a 6):             ✅
     1. Nombre — descripción corta — precio (el precio solo si son productos)
     2.
