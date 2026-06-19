@@ -88,6 +88,7 @@ Tomar siempre la decisión que mejore el rendimiento: lazy loading, optimizació
 
 ## Diseño
 - Mobile-first siempre; priorizar la experiencia en teléfono.
+- **Responsive sin excepción**: toda web y toda sección tiene que verse y funcionar bien en mobile, tablet y desktop. Nunca entregar algo que no sea responsive.
 - Antes de generar/ajustar componentes, leer las dos skills: `landing-generator` y `frontend-design`.
 - Diseños minimalistas y con apariencia humana. Nunca patrones genéricos de template AI.
 - Tipografía, paleta y espaciado son decisiones deliberadas y específicas para cada cliente.
