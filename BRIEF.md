@@ -11,7 +11,7 @@
 - URL final:                 ✅  (https://…  — si no hay todavía, poné un placeholder)
 
 ## CONTACTO
-- WhatsApp:                  ✅  (+54 223 555-1234)
+- WhatsApp:                  ✅  (+54 223 555-1234 — si no hay, uso +5492236680996)
 - Email:                     (opcional)
 - Dirección + Google Maps:   (opcional)
 - Instagram / Facebook:      (opcional)

@@ -119,6 +119,7 @@ Cada cliente elige un estilo; se aplica vía las variables de `:root` en `app/gl
 ## Copy
 - Español argentino (voseo) como idioma principal, inglés como traducción.
 - WhatsApp es el CTA principal en toda la página (`buildWhatsAppLink`).
+- **Defaults de contacto** cuando el cliente no da los suyos: WhatsApp/teléfono `+5492236680996`, sitio/IG de fallback `estudiove.ar`.
 - Textos orientados al beneficio del cliente, no a las características del negocio.
 
 ## Deploy
