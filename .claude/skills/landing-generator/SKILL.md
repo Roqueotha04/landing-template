@@ -63,6 +63,8 @@ pnpm build
 
 Must compile, pass TypeScript, and export static pages including `/sitemap.xml` and `/robots.txt`. Fix all errors before presenting.
 
+**Scope of execution is strict**: the production build is the ONLY allowed verification. Do NOT run `pnpm dev`/a server, open a browser, take screenshots, or do anything beyond what's needed to make it compile — unless the user explicitly asks.
+
 ## Design Principles
 
 - **Mobile-first**: layouts start from mobile, expand with `md:`/`lg:`.

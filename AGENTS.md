@@ -70,6 +70,11 @@ app/         layout.tsx · page.tsx · sitemap.ts · robots.ts · globals.css
 - Colores y fuentes en `app/globals.css`: variables en `:root` + mapeo en `@theme inline` → genera utilidades `bg-primary`, `text-foreground`, `font-heading`, etc.
 - Cambiar la marca de un cliente = editar las variables de `:root`. Las fuentes se cambian en `app/layout.tsx` (import de `next/font/google`).
 
+## Ejecución — alcance estricto
+- La **única** verificación permitida es el build de producción: `pnpm build`. Nada más.
+- **Prohibido sin que el usuario lo pida explícitamente**: levantar `pnpm dev`/servidor, abrir el navegador, tomar screenshots, previsualizar, o cualquier paso fuera de lo necesario para que compile.
+- No ejecutar de más: hacé solo lo pedido. Si el build pasa, terminás ahí.
+
 ## Rendimiento
 Tomar siempre la decisión que mejore el rendimiento: lazy loading, optimización de imágenes, code splitting y minimizar el JS del cliente.
 
