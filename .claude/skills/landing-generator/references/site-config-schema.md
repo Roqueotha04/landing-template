@@ -59,6 +59,17 @@ These are typed and safe to fill, but **the base components don't all render the
 4. `sections`: reorder or remove sections (e.g. drop `"about"`).
 5. Brand colors/fonts → `app/globals.css` `:root` variables (NOT the config). Fonts → `app/layout.tsx`.
 
+## Web size — single-page vs multi-page
+
+Default is **single-page**: every section lives in `app/page.tsx`, the Navbar scrolls via anchors. Only switch to **multi-page** when the user explicitly asks to make the site bigger.
+
+Multi-page = keep a home (Hero) and split each remaining section into its **own route**, reusing the section component **as-is** plus an **extra page title** on top:
+
+- `app/servicios/` · `app/productos/` · `app/<business>/` → `Offerings` (route name follows the web type).
+- `app/nosotros/` → `About`. · `app/contacto/` → `Contact`.
+
+Each extra page renders `Navbar` + extra title + the copied section + `Footer` + `FloatingWhatsApp`. The Navbar/Footer then link to the routes (`next/link`) instead of anchors. SEO: the extra page's `h1` is the page title (no Hero there), the section keeps its `h2`. Static export note: a dynamic `app/[page]/` route needs `generateStaticParams()` + `dynamic = "force-static"` + `dynamicParams = false`; explicit folders need none of that. The goal is only to enlarge the site — never to redesign or change section content.
+
 ## Example — Services
 
 ```ts

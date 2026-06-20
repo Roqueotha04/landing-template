@@ -51,6 +51,18 @@ app/         layout.tsx · page.tsx · sitemap.ts · robots.ts · globals.css
 - **Productos** (`offerings.kind: "products"`): tarjetas con `price`.
 - **Promocional**: web que **no** usa grid de productos/servicios ni cards. Su único objetivo es lucir: se arma una composición estética **solo con las imágenes que entrega el cliente + texto** (bloques imagen/texto alternados, full-bleed, overlays, tipografía grande). Nada de listados ni precios. La sección del medio muestra las imágenes promocionales en lugar del grid de `Offerings`. Sigue siendo responsive y reutiliza los componentes existentes (`Section`, `Reveal`, etc.).
 
+## Tamaño de la web — single-page vs multipágina
+- **Default: single-page.** Todas las secciones viven en `app/page.tsx` y el Navbar navega con anclas (`#offerings`, `#about`, `#contact`). No cambiar esto salvo pedido explícito.
+- **Multipágina (solo cuando el usuario lo pide para agrandar la web):** se mantiene una home y se crean **3 páginas extra**, una por sección, reutilizando **el mismo componente de sección tal cual** (no se reescribe ni se cambia nada) más un **título de página extra arriba**:
+  - `app/servicios/` · `app/productos/` · `app/<negocio>/` → la sección `Offerings` (el nombre de la ruta sale del tipo: servicios / productos / nombre del negocio en promocional).
+  - `app/nosotros/` → la sección `About`.
+  - `app/contacto/` → la sección `Contact`.
+- La home queda con el `Hero` (y lo que el usuario quiera dejar ahí). Cada página extra: `Navbar` + título extra + la sección copiada + `Footer` + `FloatingWhatsApp`.
+- En este modo el Navbar/Footer dejan de usar anclas y enlazan a las rutas (`/servicios`, `/nosotros`, `/contacto`) con `next/link`.
+- **SEO/jerarquía:** en las páginas extra el `h1` es el título extra de página (no hay Hero), y la sección conserva su `h2`. Un solo `h1` por página.
+- **Export estático:** si se hace con ruta dinámica `app/[page]/`, requiere `generateStaticParams()` + `export const dynamic = "force-static"` y `dynamicParams = false`. Si se hace con carpetas explícitas (`app/nosotros/`, etc.), no hace falta nada de eso.
+- El único objetivo de este modo es **agrandar la web cuando se ve necesario**, nunca rediseñar ni cambiar el contenido de las secciones.
+
 ## Imágenes — leer y ubicar SIEMPRE
 Hay que **leer los nombres** de las imágenes en `assets-cliente/` y colocarlas en su sección según el nombre (no ignorarlas):
 - `hero*` → sección Hero.
