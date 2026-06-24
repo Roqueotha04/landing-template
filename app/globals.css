@@ -18,8 +18,8 @@
   --color-secondary: var(--secondary);
   --color-accent: var(--accent);
 
-  --font-heading: var(--font-sans);
-  --font-body: var(--font-sans);
+  --font-heading: var(--font-heading-face);
+  --font-body: var(--font-body-face);
 }
 
 html {

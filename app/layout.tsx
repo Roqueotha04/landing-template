@@ -5,9 +5,16 @@ import { siteConfig } from "@/config/site.config";
 import { LanguageProvider } from "@/components/providers/LanguageProvider";
 import { JsonLd } from "@/components/seo/JsonLd";
 
-const sans = Geist({
+// Keep these imports in sync with brand.headingFont / brand.bodyFont in site.config.ts
+const headingFont = Geist({
   subsets: ["latin"],
-  variable: "--font-sans",
+  variable: "--font-heading-face",
+  display: "swap",
+});
+
+const bodyFont = Geist({
+  subsets: ["latin"],
+  variable: "--font-body-face",
   display: "swap",
 });
 
@@ -37,7 +44,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang={locale} className={`${sans.variable} h-full antialiased`}>
+    <html lang={locale} suppressHydrationWarning className={`${headingFont.variable} ${bodyFont.variable} h-full antialiased`}>
       <body className="min-h-full font-body">
         <JsonLd />
         <LanguageProvider>{children}</LanguageProvider>

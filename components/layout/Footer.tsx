@@ -8,9 +8,8 @@ import { useLanguage } from "@/hooks/useLanguage";
 import { buildWhatsAppLink } from "@/lib/whatsapp";
 import { InstagramIcon, WhatsAppIcon } from "@/components/ui/icons";
 
-const { business, contact, offerings, sections } = siteConfig;
+const { business, contact, offerings, sections, legalLinks } = siteConfig;
 const navSections: SectionId[] = sections.filter((id) => id !== "hero");
-const legalLinks: Localized[] = [ui.footer.privacy, ui.footer.terms, ui.footer.cookies];
 
 function navLabel(id: SectionId): Localized {
   return id === "offerings" ? offerings.title : ui.nav[id];
@@ -90,20 +89,22 @@ export function Footer() {
               ))}
             </nav>
 
-            <nav className="flex flex-col gap-3">
-              <span className="text-xs font-bold uppercase tracking-wide text-white/40">
-                {t(ui.footer.legal)}
-              </span>
-              {legalLinks.map((label) => (
-                <a
-                  key={label.es}
-                  href="#"
-                  className="text-sm text-white/70 transition-colors hover:text-white"
-                >
-                  {t(label)}
-                </a>
-              ))}
-            </nav>
+            {legalLinks && legalLinks.length > 0 && (
+              <nav className="flex flex-col gap-3">
+                <span className="text-xs font-bold uppercase tracking-wide text-white/40">
+                  {t(ui.footer.legal)}
+                </span>
+                {legalLinks.map((link) => (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    className="text-sm text-white/70 transition-colors hover:text-white"
+                  >
+                    {t(link.label)}
+                  </a>
+                ))}
+              </nav>
+            )}
           </div>
         </div>
 

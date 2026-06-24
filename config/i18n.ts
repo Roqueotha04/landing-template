@@ -40,9 +40,6 @@ interface UiStrings {
     follow: Localized;
     sections: Localized;
     legal: Localized;
-    privacy: Localized;
-    terms: Localized;
-    cookies: Localized;
     designedBy: Localized;
     agencyTagline: Localized;
   };
@@ -96,9 +93,6 @@ export const ui: UiStrings = {
     follow: { es: "Seguinos", en: "Follow us" },
     sections: { es: "Secciones", en: "Sections" },
     legal: { es: "Legal", en: "Legal" },
-    privacy: { es: "Privacidad", en: "Privacy" },
-    terms: { es: "Términos", en: "Terms" },
-    cookies: { es: "Cookies", en: "Cookies" },
     designedBy: { es: "Diseñado por", en: "Designed by" },
     agencyTagline: {
       es: "Agencia de Desarrollo de Software",

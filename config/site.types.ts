@@ -70,6 +70,11 @@ export interface ContactContent {
   whatsappMessage: Localized;
 }
 
+export interface LegalLink {
+  label: Localized;
+  href: string;
+}
+
 export interface SeoContent {
   title: Localized;
   description: Localized;
@@ -86,5 +91,6 @@ export interface SiteConfig {
   offerings: OfferingsContent;
   about: AboutContent;
   contact: ContactContent;
+  legalLinks?: LegalLink[];
   seo: SeoContent;
 }
