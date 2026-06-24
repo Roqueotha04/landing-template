@@ -105,5 +105,5 @@ export function validateConfig(config: SiteConfig): SiteConfig {
       .join("\n");
     throw new Error(`\n\n❌ Config validation failed:\n${errors}\n`);
   }
-  return config;
+  return result.data as SiteConfig;
 }

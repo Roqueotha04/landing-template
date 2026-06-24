@@ -15,9 +15,16 @@ export function About() {
     <Section id="about">
       <Reveal className="max-w-2xl">
         <SectionHeading title={about.title} />
-        <p className="mt-6 text-lg leading-relaxed text-foreground/70">
-          {t(about.body)}
-        </p>
+        <div className="mt-6 space-y-4">
+          {t(about.body).map((paragraph, index) => (
+            <p
+              key={index}
+              className="text-lg leading-relaxed text-foreground/70"
+            >
+              {paragraph}
+            </p>
+          ))}
+        </div>
       </Reveal>
     </Section>
   );

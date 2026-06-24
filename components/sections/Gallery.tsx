@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { siteConfig } from "@/config/site.config";
 import { useLanguage } from "@/hooks/useLanguage";
@@ -11,7 +11,14 @@ import { Reveal } from "@/components/ui/Reveal";
 export function Gallery() {
   const { t } = useLanguage();
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const dialogRef = useRef<HTMLDivElement>(null);
   const gallery = siteConfig.gallery;
+
+  useEffect(() => {
+    if (lightboxIndex !== null) {
+      dialogRef.current?.focus();
+    }
+  }, [lightboxIndex]);
 
   if (!gallery) return null;
 
@@ -41,9 +48,11 @@ export function Gallery() {
 
       {lightboxIndex !== null && (
         <div
+          ref={dialogRef}
           role="dialog"
           aria-modal
-          className="fixed inset-0 z-[60] flex items-center justify-center bg-black/80 p-6 backdrop-blur-sm"
+          tabIndex={0}
+          className="fixed inset-0 z-[60] flex items-center justify-center bg-black/80 p-6 backdrop-blur-sm outline-none"
           onClick={() => setLightboxIndex(null)}
           onKeyDown={(e) => {
             if (e.key === "Escape") setLightboxIndex(null);
