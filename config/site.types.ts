@@ -6,7 +6,55 @@ export type Localized<T = string> = Record<Locale, T>;
 
 export type OfferingKind = "services" | "products";
 
-export type SectionId = "hero" | "offerings" | "about" | "contact";
+export type SectionId =
+  | "hero"
+  | "offerings"
+  | "about"
+  | "contact"
+  | "testimonials"
+  | "gallery"
+  | "faq";
+
+export interface SectionVariants {
+  about?: "split" | "simple";
+  contact?: "full" | "centered";
+  offerings?: "grid" | "carousel";
+}
+
+export interface Testimonial {
+  name: string;
+  role?: Localized;
+  quote: Localized;
+  avatar?: string;
+}
+
+export interface TestimonialsContent {
+  title: Localized;
+  subtitle?: Localized;
+  items: Testimonial[];
+}
+
+export interface GalleryImage {
+  src: string;
+  alt: Localized;
+}
+
+export interface GalleryContent {
+  title: Localized;
+  subtitle?: Localized;
+  images: GalleryImage[];
+}
+
+export interface FaqItem {
+  question: Localized;
+  answer: Localized;
+}
+
+export interface FaqContent {
+  title: Localized;
+  subtitle?: Localized;
+  items: FaqItem[];
+}
 
 export interface Offering {
   name: Localized;
@@ -87,10 +135,14 @@ export interface SiteConfig {
   business: Business;
   brand: Brand;
   sections: SectionId[];
+  variants?: SectionVariants;
   hero: HeroContent;
   offerings: OfferingsContent;
   about: AboutContent;
   contact: ContactContent;
+  testimonials?: TestimonialsContent;
+  gallery?: GalleryContent;
+  faq?: FaqContent;
   legalLinks?: LegalLink[];
   seo: SeoContent;
 }

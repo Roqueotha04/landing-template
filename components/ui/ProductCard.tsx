@@ -14,7 +14,7 @@ export function ProductCard({ item }: { item: Offering }) {
       href={`/oferta/${offeringSlug(item)}`}
       className="group flex h-full flex-col overflow-hidden rounded-3xl bg-white shadow-lg transition-transform duration-300 hover:-translate-y-1.5"
     >
-      <div className="relative aspect-square w-full overflow-hidden bg-accent">
+      <div className="img-shimmer relative aspect-square w-full overflow-hidden">
         {item.image && (
           <Image
             src={item.image}

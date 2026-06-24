@@ -3,6 +3,7 @@ import { Geist } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/config/site.config";
 import { LanguageProvider } from "@/components/providers/LanguageProvider";
+import { MotionProvider } from "@/components/providers/MotionProvider";
 import { JsonLd } from "@/components/seo/JsonLd";
 
 // Keep these imports in sync with brand.headingFont / brand.bodyFont in site.config.ts
@@ -47,7 +48,9 @@ export default function RootLayout({
     <html lang={locale} suppressHydrationWarning className={`${headingFont.variable} ${bodyFont.variable} h-full antialiased`}>
       <body className="min-h-full font-body">
         <JsonLd />
-        <LanguageProvider>{children}</LanguageProvider>
+        <MotionProvider>
+          <LanguageProvider>{children}</LanguageProvider>
+        </MotionProvider>
       </body>
     </html>
   );

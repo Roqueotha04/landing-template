@@ -1,6 +1,7 @@
 import type { SiteConfig } from "./site.types";
+import { validateConfig } from "@/lib/validate-config";
 
-export const siteConfig: SiteConfig = {
+export const siteConfig: SiteConfig = validateConfig({
   site: {
     url: "https://example.com",
     defaultLocale: "es",
@@ -123,4 +124,4 @@ export const siteConfig: SiteConfig = {
     },
     keywords: ["rubro", "ciudad", "negocio"],
   },
-};
+});

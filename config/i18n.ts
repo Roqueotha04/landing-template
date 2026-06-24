@@ -51,6 +51,9 @@ export const ui: UiStrings = {
     offerings: { es: "Servicios", en: "Services" },
     about: { es: "Nosotros", en: "About" },
     contact: { es: "Contacto", en: "Contact" },
+    testimonials: { es: "Testimonios", en: "Testimonials" },
+    gallery: { es: "Galería", en: "Gallery" },
+    faq: { es: "Preguntas frecuentes", en: "FAQ" },
   },
   languageToggle: {
     label: { es: "Cambiar idioma", en: "Switch language" },

@@ -20,31 +20,34 @@ El clean code se prioriza **siempre**, por encima de la velocidad o la convenien
 - Si una solución rápida ensucia el código, no se usa: se busca la versión limpia.
 
 ## Stack
-Next.js 16 (App Router) + React 19 + Tailwind CSS 4 + TypeScript + Framer Motion 12.
+Next.js 16 (App Router) + React 19 + Tailwind CSS 4 + TypeScript + Framer Motion 12 + Zod.
 - Versiones congeladas: nunca downgradear Next/React/Tailwind/TS. Si una librería nueva puede dar problemas de compatibilidad, verificar peer deps antes de agregarla.
 - Gestor de paquetes: **pnpm** (fijado en `package.json` → `packageManager`). No introducir lockfiles de `npm`/`yarn`.
 - Tailwind 4: el tema se define en `app/globals.css` con `@theme` (CSS custom properties). **No hay `tailwind.config.ts`.**
 - Export estático: `output: 'export'` en `next.config.ts`. `next/image` usa `images.unoptimized: true`.
 - Alias de imports: `@/*` apunta a la raíz del proyecto.
+- Validación: `site.config.ts` se valida con Zod al importarse (`lib/validate-config.ts`). Si falta un campo, el build falla con error claro.
 
 ## Arquitectura — todo componetizado
 Las rutas (`app/`) **solo componen**; nunca contienen markup de secciones. La lógica vive en `components/`, `hooks/` y `lib/`.
 
 ```
-config/      site.config.ts (ÚNICO editable por cliente) · site.types.ts · i18n.ts
-lib/         i18n.ts (translate) · whatsapp.ts (buildWhatsAppLink)
-hooks/       useLanguage.ts · useLocalStorage.ts
+config/      site.config.ts (ÚNICO editable por cliente) · site.types.ts · i18n.ts · presets/
+lib/         i18n.ts · whatsapp.ts · slug.ts · validate-config.ts
+hooks/       useLanguage.ts · useLocalStorage.ts · useDragScroll.ts
 components/
-  providers/ LanguageProvider.tsx   (estado de idioma + persistencia)
-  ui/        Section · Button · LanguageToggle · WhatsAppButton
+  providers/ LanguageProvider.tsx · MotionProvider.tsx (LazyMotion)
+  ui/        Section · Button · LanguageToggle · WhatsAppButton · Reveal · Carousel · SectionHeading
   layout/    Navbar · Footer
-  sections/  Hero · Offerings · About · Contact
+  sections/  Hero · Offerings(Carousel) · About(Split) · Contact(Centered) · FAQ · Testimonials · Gallery
   seo/       JsonLd.tsx
-app/         layout.tsx · page.tsx · sitemap.ts · robots.ts · globals.css
+app/         layout.tsx · page.tsx · not-found.tsx · sitemap.ts · robots.ts · globals.css · oferta/[slug]/
+scripts/     new-client.mjs
 ```
 
-- `app/page.tsx` recorre `siteConfig.sections` y renderiza cada sección desde un registro `SectionId → componente`. Activar/desactivar/reordenar secciones = editar ese array en el config.
-- Las secciones usan `id` (`hero`, `offerings`, `about`, `contact`) para el scroll suave desde el Navbar.
+- `app/page.tsx` recorre `siteConfig.sections` y renderiza cada sección desde un registro de variantes (`SectionId → componente`). El campo `variants` del config elige la versión de cada sección (ej: `about: "split" | "simple"`).
+- Secciones disponibles: `hero`, `offerings`, `about`, `contact`, `faq`, `testimonials`, `gallery`.
+- Las secciones usan `id` para el scroll suave desde el Navbar.
 
 ## Tipos de web
 - **Servicios** (`offerings.kind: "services"`): tarjetas sin precio.
@@ -68,8 +71,9 @@ Hay que **leer los nombres** de las imágenes en `assets-cliente/` y colocarlas 
 - `hero*` → sección Hero.
 - `nosotros*` / `about*` / `quienes-somos*` → sección Nosotros.
 - `oferta-N*` / imágenes promocionales → sección del medio (offerings o composición promocional).
+- `galeria-N*` → sección Gallery.
 - `logo*` → logo (Navbar/Footer).
-Mover a `public/` solo las que se usan. Toda imagen lleva `alt` descriptivo.
+Mover a `public/` solo las que se usan. Toda imagen lleva `alt` descriptivo. Los contenedores de imagen usan la clase `img-shimmer` como placeholder visual.
 
 ## Configuración y contenido
 - **Todo el contenido del negocio sale de `config/site.config.ts`.** Nunca hardcodear texto, colores, números ni links en componentes.
@@ -92,6 +96,7 @@ Mover a `public/` solo las que se usan. Toda imagen lleva `alt` descriptivo.
 ## Tema
 - Colores y fuentes en `app/globals.css`: variables en `:root` + mapeo en `@theme inline` → genera utilidades `bg-primary`, `text-foreground`, `font-heading`, etc.
 - Cambiar la marca de un cliente = editar las variables de `:root`. Las fuentes se cambian en `app/layout.tsx` (import de `next/font/google`).
+- **Presets listos** en `config/presets/` (futuristic, minimalist, elegant, fresh): copiar las variables de `:root` del archivo del preset a `globals.css`.
 
 ## Ejecución — alcance estricto
 - La **única** verificación permitida es el build de producción: `pnpm build`. Nada más.
@@ -100,6 +105,9 @@ Mover a `public/` solo las que se usan. Toda imagen lleva `alt` descriptivo.
 
 ## Rendimiento
 Tomar siempre la decisión que mejore el rendimiento: lazy loading, optimización de imágenes, code splitting y minimizar el JS del cliente.
+- Framer Motion usa `LazyMotion` con `domAnimation` (no el bundle completo).
+- Los contenedores de imagen usan la clase `img-shimmer` (definida en `globals.css`) como placeholder visual mientras cargan.
+- `next/font/google` con `display: "swap"` para zero layout shift.
 
 ## Diseño
 - Mobile-first siempre; priorizar la experiencia en teléfono.
@@ -117,9 +125,10 @@ Cada cliente elige un estilo; se aplica vía las variables de `:root` en `app/gl
 - **Fresh**: verde, bordes redondeados, amigable, `Nunito`.
 
 ## Animaciones
-- Framer Motion **sutil**: usar el wrapper `components/ui/Reveal.tsx` (fade-up al entrar en viewport, `once`).
+- Framer Motion **sutil** via `LazyMotion` + `domAnimation` (bundle reducido). Usar `m` en vez de `motion`, y el wrapper `components/ui/Reveal.tsx` (fade-up al entrar en viewport, `once`).
 - Honra `prefers-reduced-motion` (vía `useReducedMotion`).
 - Solo Client Components (Framer Motion lo requiere). No animar por animar; suma cuando aporta jerarquía o foco.
+- El `MotionProvider` envuelve toda la app en `layout.tsx`.
 
 ## SEO
 - Metadata y Open Graph dinámicos desde `config.seo` en `app/layout.tsx`.

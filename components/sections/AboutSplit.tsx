@@ -27,7 +27,7 @@ export function AboutSplit() {
               aria-hidden
               className="absolute inset-0 -rotate-3 rounded-[2.5rem] bg-primary/15"
             />
-            <div className="relative aspect-[4/5] w-full rotate-2 overflow-hidden rounded-[2.5rem] border-[6px] border-white shadow-2xl">
+            <div className="img-shimmer relative aspect-[4/5] w-full rotate-2 overflow-hidden rounded-[2.5rem] border-[6px] border-white shadow-2xl">
               {about.image && (
                 <Image
                   src={about.image}

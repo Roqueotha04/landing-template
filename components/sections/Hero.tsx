@@ -54,7 +54,7 @@ export function Hero() {
               aria-hidden
               className="absolute inset-0 -rotate-6 rounded-[2.5rem] bg-secondary/25"
             />
-            <div className="relative aspect-square w-full rotate-3 overflow-hidden rounded-[2.5rem] border-[6px] border-background shadow-2xl">
+            <div className="img-shimmer relative aspect-square w-full rotate-3 overflow-hidden rounded-[2.5rem] border-[6px] border-background shadow-2xl">
               <Image
                 src={hero.backgroundImage}
                 alt={t(hero.title)}

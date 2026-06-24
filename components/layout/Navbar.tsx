@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, m } from "framer-motion";
 import { siteConfig } from "@/config/site.config";
 import { ui } from "@/config/i18n";
 import type { Localized, SectionId } from "@/config/site.types";
@@ -93,7 +93,7 @@ export function Navbar() {
 
       <AnimatePresence>
         {isOpen && (
-          <motion.div
+          <m.div
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
@@ -123,7 +123,7 @@ export function Navbar() {
                 {t(ui.whatsapp.cta)}
               </a>
             </div>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
     </header>

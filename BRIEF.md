@@ -35,6 +35,19 @@
 - Tagline del hero:
 - Texto "Sobre nosotros":
 - Secciones a mostrar/ocultar: (default: hero, offerings, about, contact)
+                                 Opcionales: faq, testimonials, gallery
+
+## SECCIONES OPCIONALES
+- Testimonios:               (nombre, rol, frase — minimo 3)
+    1.
+    2.
+    3.
+- Preguntas frecuentes:      (pregunta — respuesta)
+    1.
+    2.
+    3.
+- Galería de fotos:          (poner imágenes con nombre `galeria-N.*` en assets-cliente/)
+- Links legales:             (opcional: URLs de privacidad, términos, cookies)
 
 ---
 
