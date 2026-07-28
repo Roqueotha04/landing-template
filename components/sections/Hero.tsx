@@ -19,7 +19,7 @@ export function Hero() {
     >
       <span
         aria-hidden
-        className="pointer-events-none absolute left-1/2 md:left-[66%] top-1/2 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[600px] rounded-full opacity-40 mix-blend-screen blur-[100px]"
+        className="pointer-events-none absolute left-1/2 md:left-[66%] top-1/2 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[600px] rounded-full opacity-15 mix-blend-screen blur-[100px]"
         style={{
           background: "radial-gradient(circle, rgba(229,193,88,0.8) 0%, rgba(197,160,89,0) 70%)"
         }}

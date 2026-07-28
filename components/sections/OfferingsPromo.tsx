@@ -7,23 +7,34 @@ import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
 import { WaveDivider } from "@/components/ui/WaveDivider";
+import { buildWhatsAppLink } from "@/lib/whatsapp";
+import { Button } from "@/components/ui/Button";
+import { ArrowRightIcon } from "@/components/ui/icons";
 
 const { offerings } = siteConfig;
 
 export function OfferingsPromo() {
   const { t } = useLanguage();
+  const whatsappHref = buildWhatsAppLink(
+    siteConfig.business.whatsapp,
+    t(siteConfig.contact.whatsappMessage)
+  );
 
   return (
     <Section
       id="offerings"
-      className="bg-white text-neutral-900"
+      className="bg-white text-neutral-900 relative"
       topDivider={<WaveDivider className="fill-white" />}
     >
-      <div className="text-neutral-900">
+      <div 
+        className="absolute inset-0 pointer-events-none bg-dot-pattern opacity-50"
+        style={{ maskImage: "radial-gradient(ellipse at center, black 40%, transparent 80%)", WebkitMaskImage: "radial-gradient(ellipse at center, black 40%, transparent 80%)" }}
+      />
+      <div className="text-neutral-900 relative z-10">
         <SectionHeading title={offerings.title} subtitle={offerings.subtitle} align="center" />
       </div>
 
-      <div className="mt-20 flex flex-col gap-16 md:gap-24 max-w-5xl mx-auto">
+      <div className="mt-20 flex flex-col gap-16 md:gap-24 max-w-5xl mx-auto relative z-10">
         {offerings.items.map((item, index) => {
           const isReversed = index % 2 !== 0;
           return (
@@ -57,6 +68,18 @@ export function OfferingsPromo() {
             </Reveal>
           );
         })}
+        
+        <Reveal delay={0.2} className="flex justify-center mt-8 md:mt-12 w-full px-6 md:px-0">
+          <a 
+            href={whatsappHref} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="group inline-flex w-full sm:w-auto items-center justify-center gap-3 rounded-md bg-gradient-to-r from-primary via-[#e5c158] to-primary px-12 sm:px-20 py-4 font-heading text-lg font-bold text-primary-foreground shadow-[0_10px_30px_rgba(197,160,89,0.4)] transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_10px_40px_rgba(197,160,89,0.6)]"
+          >
+            ¡Quiero saber mas!
+            <ArrowRightIcon className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+          </a>
+        </Reveal>
       </div>
     </Section>
   );

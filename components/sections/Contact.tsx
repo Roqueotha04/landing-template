@@ -84,10 +84,14 @@ export function Contact() {
   return (
     <Section
       id="contact"
-      className="bg-background text-foreground"
+      className="bg-background text-foreground relative overflow-hidden"
       topDivider={<WaveDivider className="fill-accent" />}
     >
-      <div className="grid gap-16 md:grid-cols-2 md:gap-32 max-w-7xl mx-auto px-4 md:px-8">
+      <span
+        aria-hidden
+        className="pointer-events-none absolute -left-20 bottom-0 h-[500px] w-[500px] rounded-full bg-primary/15 blur-[120px]"
+      />
+      <div className="grid gap-16 md:grid-cols-2 md:gap-32 max-w-7xl mx-auto px-4 md:px-8 relative z-10">
         <Reveal>
           <SectionHeading
             eyebrow={ui.contact.detailsTitle}
@@ -144,17 +148,18 @@ export function Contact() {
         </Reveal>
 
         <Reveal delay={0.1}>
-          <form
-            onSubmit={handleSubmit}
-            className="rounded-sm bg-white/5 border border-white/10 backdrop-blur p-8 shadow-2xl"
-          >
-            <h3 className="font-heading text-2xl font-bold text-primary mb-6">
+          <div className="mb-4">
+            <h3 className="font-heading text-xl md:text-2xl font-bold text-primary">
               {t(ui.contact.formTitle)}
             </h3>
-
-            <div className="space-y-5">
+          </div>
+          <form
+            onSubmit={handleSubmit}
+            className="rounded-sm bg-white/5 border border-white/10 backdrop-blur p-5 md:p-8 shadow-2xl"
+          >
+            <div className="space-y-4">
               <label className="block">
-                <span className="mb-2 block text-sm font-semibold text-foreground/80">
+                <span className="mb-1 block text-xs md:text-sm font-semibold text-foreground/80">
                   {t(ui.contact.nameLabel)}
                 </span>
                 <input
@@ -163,12 +168,12 @@ export function Contact() {
                   onChange={(event) => setName(event.target.value)}
                   placeholder={t(ui.contact.namePlaceholder)}
                   required
-                  className="w-full rounded-sm border border-white/10 bg-black/20 px-4 py-3.5 text-base outline-none transition-colors placeholder:text-foreground/30 focus:border-primary text-foreground"
+                  className="w-full rounded-sm border border-white/10 bg-black/20 px-3 py-2.5 text-sm outline-none transition-colors placeholder:text-foreground/30 focus:border-primary text-foreground"
                 />
               </label>
 
               <label className="block">
-                <span className="mb-2 block text-sm font-semibold text-foreground/80">
+                <span className="mb-1 block text-xs md:text-sm font-semibold text-foreground/80">
                   {t(ui.contact.phoneLabel)}
                 </span>
                 <input
@@ -177,19 +182,19 @@ export function Contact() {
                   onChange={(event) => setPhone(event.target.value)}
                   placeholder={t(ui.contact.phonePlaceholder)}
                   required
-                  className="w-full rounded-sm border border-white/10 bg-black/20 px-4 py-3.5 text-base outline-none transition-colors placeholder:text-foreground/30 focus:border-primary text-foreground"
+                  className="w-full rounded-sm border border-white/10 bg-black/20 px-3 py-2.5 text-sm outline-none transition-colors placeholder:text-foreground/30 focus:border-primary text-foreground"
                 />
               </label>
 
               <label className="block">
-                <span className="mb-2 block text-sm font-semibold text-foreground/80">
+                <span className="mb-1 block text-xs md:text-sm font-semibold text-foreground/80">
                   {t(ui.contact.reasonLabel)}
                 </span>
                 <select
                   value={reason}
                   onChange={(event) => setReason(event.target.value)}
                   required
-                  className="w-full rounded-sm border border-white/10 bg-black/20 px-4 py-3.5 text-base outline-none transition-colors focus:border-primary text-foreground appearance-none"
+                  className="w-full rounded-sm border border-white/10 bg-black/20 px-3 py-2.5 text-sm outline-none transition-colors focus:border-primary text-foreground appearance-none"
                 >
                   <option value="" disabled className="text-black bg-white">{t(ui.contact.reasonPlaceholder)}</option>
                   <option value="executive" className="text-black bg-white">{t(ui.contact.reasonOptions.executive)}</option>
@@ -200,7 +205,7 @@ export function Contact() {
               </label>
 
               <label className="block">
-                <span className="mb-2 block text-sm font-semibold text-foreground/80">
+                <span className="mb-1 block text-xs md:text-sm font-semibold text-foreground/80">
                   {t(ui.contact.messageLabel)}
                 </span>
                 <textarea
@@ -208,14 +213,14 @@ export function Contact() {
                   onChange={(event) => setMessage(event.target.value)}
                   placeholder={t(ui.contact.messagePlaceholder)}
                   required
-                  rows={4}
-                  className="w-full resize-none rounded-sm border border-white/10 bg-black/20 px-4 py-3.5 text-base outline-none transition-colors placeholder:text-foreground/30 focus:border-primary text-foreground"
+                  rows={3}
+                  className="w-full resize-none rounded-sm border border-white/10 bg-black/20 px-3 py-2.5 text-sm outline-none transition-colors placeholder:text-foreground/30 focus:border-primary text-foreground"
                 />
               </label>
 
               <button
                 type="submit"
-                className="inline-flex h-14 w-full items-center justify-center gap-2 rounded-sm bg-primary px-6 text-base font-bold text-background transition-transform hover:scale-[1.02] shadow-[0_5px_20px_-5px_rgba(197,160,89,0.4)]"
+                className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-sm bg-primary px-6 text-sm font-bold text-background transition-transform hover:scale-[1.02] shadow-[0_5px_20px_-5px_rgba(197,160,89,0.4)]"
               >
                 <MailIcon className="h-5 w-5" />
                 {t(ui.contact.submit)}

@@ -26,8 +26,8 @@ export function AboutSplit() {
 
       <div className="relative grid items-center gap-12 md:grid-cols-2 max-w-6xl mx-auto px-6 md:px-0">
         <Reveal delay={0.05} className="order-first md:order-first">
-          <div className="relative mx-auto w-full max-w-sm">
-            <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl shadow-[0_20px_50px_-12px_rgba(0,0,0,0.6)] border border-primary/20 bg-background/50">
+          <div className="relative mx-auto w-full max-w-xs">
+            <div className="relative aspect-square w-full overflow-hidden rounded-2xl shadow-[0_20px_50px_-12px_rgba(0,0,0,0.6)] border border-primary/20 bg-background/50">
               <div className="absolute inset-0 bg-background img-shimmer" />
               {about.image && (
                 <Image

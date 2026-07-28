@@ -35,7 +35,7 @@ export const siteConfig: SiteConfig = validateConfig({
     },
     ctaText: { es: "Agendá tu Sesión", en: "Book your Session" },
     secondaryCtaText: { es: "Conocé los Servicios", en: "Explore Services" },
-    backgroundImage: "/logo.jpeg",
+    backgroundImage: "/sobre-nosotros-nuevo.png",
   },
   offerings: {
     kind: "services",
@@ -65,17 +65,15 @@ export const siteConfig: SiteConfig = validateConfig({
       en: "Sebastián Pedro Grondona",
     },
     title: {
-      es: "Sobre Mí",
-      en: "About Me",
+      es: "Sobre Nosotros",
+      en: "About Us",
     },
     body: {
       es: [
-        "Acompaño a personas, líderes y equipos a cerrar la brecha entre su realidad actual y sus objetivos más altos. A través de un enfoque centrado en la claridad, el enfoque y la acción, facilito procesos de transformación personal y profesional alineados a resultados reales.",
-        "Ya sea en el ámbito corporativo, en el sector inmobiliario o en tu desarrollo personal, mi compromiso es brindarte un espacio confidencial y a medida para potenciar tu talento.",
+        "Acompañamos a personas, líderes y equipos a cerrar la brecha entre su realidad actual y sus objetivos más altos. A través de un enfoque centrado en la claridad, el enfoque y la acción, facilitamos procesos de transformación personal y profesional alineados a resultados reales.",
       ],
       en: [
-        "I accompany individuals, leaders, and teams to bridge the gap between their current reality and their highest goals. Through an approach focused on clarity, focus, and action, I facilitate personal and professional transformation processes aligned with real results.",
-        "Whether in the corporate realm, the real estate sector, or your personal development, my commitment is to provide you with a confidential and tailored space to boost your talent.",
+        "We accompany individuals, leaders, and teams to bridge the gap between their current reality and their highest goals. Through an approach focused on clarity, focus, and action, we facilitate personal and professional transformation processes aligned with real results.",
       ],
     },
     highlights: [
@@ -101,7 +99,7 @@ export const siteConfig: SiteConfig = validateConfig({
         },
       },
     ],
-    image: "/sobre-nosotros-nuevo.png",
+    image: "/logo.jpeg",
   },
   contact: {
     title: {
