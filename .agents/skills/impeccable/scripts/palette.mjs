@@ -606,7 +606,7 @@ they actually bite):
     dark (L ≤ 0.30). Never a muddy mid-tone (L 0.45-0.72 + chroma < 0.10)
     — taupe/mushroom/dusty-grey accents read as weak and can't hold text
     either way. Saturate it or push its lightness to a clear light/dark.
-  - avoid the saturated AI attractor zones: claude-beige (warm-cream bg
+  - avoid the saturated AI attractor zones: Gemini-beige (warm-cream bg
     + dusty brown primary), forest-green-on-cream, AI-purple-on-white,
     navy-cream-with-orange-accent
 

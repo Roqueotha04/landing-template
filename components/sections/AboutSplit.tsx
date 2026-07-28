@@ -6,7 +6,6 @@ import { useLanguage } from "@/hooks/useLanguage";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
-import { HeartIcon } from "@/components/ui/icons";
 
 const { about } = siteConfig;
 
@@ -20,14 +19,16 @@ export function AboutSplit() {
         className="pointer-events-none absolute -right-20 top-10 h-64 w-64 rounded-full bg-primary/10 blur-2xl"
       />
 
-      <div className="relative grid items-center gap-10 md:grid-cols-2">
-        <Reveal delay={0.05} className="order-last md:order-first">
-          <div className="relative mx-auto w-full max-w-md">
-            <span
-              aria-hidden
-              className="absolute inset-0 -rotate-3 rounded-[2.5rem] bg-primary/15"
-            />
-            <div className="img-shimmer relative aspect-[4/5] w-full rotate-2 overflow-hidden rounded-[2.5rem] border-[6px] border-white shadow-2xl">
+      {/* Título en Mobile arriba de todo */}
+      <div className="md:hidden relative max-w-6xl mx-auto px-6 mb-8 mt-10">
+        <SectionHeading eyebrow={about.eyebrow} title={about.title} align="center" />
+      </div>
+
+      <div className="relative grid items-center gap-12 md:grid-cols-2 max-w-6xl mx-auto px-6 md:px-0">
+        <Reveal delay={0.05} className="order-first md:order-first">
+          <div className="relative mx-auto w-full max-w-sm">
+            <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl shadow-[0_20px_50px_-12px_rgba(0,0,0,0.6)] border border-primary/20 bg-background/50">
+              <div className="absolute inset-0 bg-background img-shimmer" />
               {about.image && (
                 <Image
                   src={about.image}
@@ -38,18 +39,14 @@ export function AboutSplit() {
                 />
               )}
             </div>
-            <span
-              aria-hidden
-              className="absolute -bottom-4 -right-4 flex h-16 w-16 rotate-12 items-center justify-center rounded-full bg-primary shadow-lg"
-            >
-              <HeartIcon className="h-8 w-8 text-white" />
-            </span>
           </div>
         </Reveal>
 
         <Reveal>
-          <SectionHeading eyebrow={about.eyebrow} title={about.title} />
-          <div className="mt-5 space-y-4">
+          <div className="hidden md:block">
+            <SectionHeading eyebrow={about.eyebrow} title={about.title} />
+          </div>
+          <div className="mt-5 md:mt-8 space-y-4 text-center md:text-left">
             {t(about.body).map((paragraph, index) => (
               <p
                 key={index}
@@ -61,16 +58,16 @@ export function AboutSplit() {
           </div>
 
           {about.highlights && about.highlights.length > 0 && (
-            <dl className="mt-8 grid grid-cols-3 gap-3">
+            <dl className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-6">
               {about.highlights.map((highlight) => (
                 <div
                   key={highlight.value}
-                  className="rounded-2xl bg-white p-3 text-center shadow-sm"
+                  className="flex flex-col items-start text-left"
                 >
-                  <dt className="font-heading text-xl font-bold text-primary">
+                  <dt className="font-heading text-xl font-bold text-primary mb-1">
                     {highlight.value}
                   </dt>
-                  <dd className="mt-0.5 text-xs text-foreground/70">
+                  <dd className="text-sm text-foreground/70 leading-relaxed font-medium">
                     {t(highlight.label)}
                   </dd>
                 </div>

@@ -18,7 +18,7 @@ export type SectionId =
 export interface SectionVariants {
   about?: "split" | "simple";
   contact?: "full" | "centered";
-  offerings?: "grid" | "carousel";
+  offerings?: "grid" | "carousel" | "promo";
 }
 
 export interface Testimonial {
@@ -93,7 +93,9 @@ export interface HeroContent {
   eyebrow?: Localized;
   title: Localized;
   subtitle: Localized;
+  body?: Localized;
   ctaText: Localized;
+  secondaryCtaText?: Localized;
   backgroundImage?: string;
 }
 

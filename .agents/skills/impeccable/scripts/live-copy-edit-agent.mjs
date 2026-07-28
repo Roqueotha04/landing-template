@@ -4,7 +4,7 @@
  *
  * The browser Save path stages edits. Apply copy edits calls
  * live-commit-manual-edits.mjs, which builds a page-scoped batch and uses this
- * helper to ask Codex/Claude to edit true source files.
+ * helper to ask Codex/Gemini to edit true source files.
  */
 
 import { spawn, spawnSync } from 'node:child_process';
@@ -120,8 +120,8 @@ export async function runCopyEditBatchAgent(batch, opts = {}) {
 
   if (provider === 'codex') {
     await runCodex(prompt, { cwd, env, resultPath, logPath, timeoutMs: opts.timeoutMs });
-  } else if (provider === 'claude') {
-    await runClaude(prompt, { cwd, env, resultPath, logPath, timeoutMs: opts.timeoutMs });
+  } else if (provider === 'Gemini') {
+    await runGemini(prompt, { cwd, env, resultPath, logPath, timeoutMs: opts.timeoutMs });
   } else {
     throw new Error(`Unsupported live copy-edit AI runner: ${provider}`);
   }
@@ -437,10 +437,10 @@ export function chooseCopyEditAgent({
   if (mode === 'mock') return 'mock';
   if (mode === 'chat') return chatAvailable() ? 'chat' : null;
   if (mode === 'codex') return commandExists('codex') ? 'codex' : null;
-  if (mode === 'claude') return commandExists('claude') ? 'claude' : null;
+  if (mode === 'Gemini') return commandExists('Gemini') ? 'Gemini' : null;
   if (mode !== 'auto') return null;
   if (authCheck('codex')) return 'codex';
-  if (authCheck('claude')) return 'claude';
+  if (authCheck('Gemini')) return 'Gemini';
   if (chatAvailable()) return 'chat';
   return null;
 }
@@ -461,7 +461,7 @@ function runCodex(prompt, { cwd, env, resultPath, logPath, timeoutMs = DEFAULT_T
   return runAgentProcess('codex', args, prompt, { cwd, env, logPath, timeoutMs });
 }
 
-function runClaude(prompt, { cwd, env, resultPath, logPath, timeoutMs = DEFAULT_TIMEOUT_MS }) {
+function runGemini(prompt, { cwd, env, resultPath, logPath, timeoutMs = DEFAULT_TIMEOUT_MS }) {
   const args = [
     '--print',
     '--permission-mode', 'bypassPermissions',
@@ -471,11 +471,11 @@ function runClaude(prompt, { cwd, env, resultPath, logPath, timeoutMs = DEFAULT_
     args.push('--model', env.IMPECCABLE_LIVE_COPY_AGENT_MODEL);
   }
   args.push(prompt);
-  // Forward env as-is so CLAUDE_CODE_OAUTH_TOKEN and ANTHROPIC_API_KEY flow
-  // through. On macOS, `claude /login` stores creds in the Keychain, which a
-  // non-TTY subprocess cannot read; setting CLAUDE_CODE_OAUTH_TOKEN (via
-  // `claude setup-token`) is the supported headless auth path.
-  return runAgentProcess('claude', args, '', { cwd, env, logPath, timeoutMs, mirrorOutputPath: resultPath });
+  // Forward env as-is so Gemini_CODE_OAUTH_TOKEN and ANTHROPIC_API_KEY flow
+  // through. On macOS, `Gemini /login` stores creds in the Keychain, which a
+  // non-TTY subprocess cannot read; setting Gemini_CODE_OAUTH_TOKEN (via
+  // `Gemini setup-token`) is the supported headless auth path.
+  return runAgentProcess('Gemini', args, '', { cwd, env, logPath, timeoutMs, mirrorOutputPath: resultPath });
 }
 
 function runAgentProcess(command, args, stdin, { cwd, env, logPath, timeoutMs, mirrorOutputPath }) {
@@ -555,7 +555,7 @@ function commandExists(command) {
 
 /**
  * Build a diagnostic error message explaining why no AI runner is usable.
- * Splits the previous "Install/authenticate Codex or Claude" lump into a
+ * Splits the previous "Install/authenticate Codex or Gemini" lump into a
  * per-provider summary so the user knows exactly which step unblocks them.
  */
 export function describeNoProviderError({
@@ -564,16 +564,16 @@ export function describeNoProviderError({
   env = process.env,
 } = {}) {
   const lines = ['No live copy-edit AI runner is available.'];
-  if (exists('claude')) {
-    if (env.CLAUDE_CODE_OAUTH_TOKEN) {
-      lines.push('  • Claude CLI: installed; CLAUDE_CODE_OAUTH_TOKEN is set but the CLI still rejected it. The token may be expired or invalid.');
+  if (exists('Gemini')) {
+    if (env.agents_CODE_OAUTH_TOKEN) {
+      lines.push('  • Gemini CLI: installed; Gemini_CODE_OAUTH_TOKEN is set but the CLI still rejected it. The token may be expired or invalid.');
     } else {
-      lines.push('  • Claude CLI: installed but not selected. If Apply still fails, the subprocess may be unable to read your `claude /login` credentials (on macOS, the Keychain can be unreachable from a no-TTY child).');
-      lines.push('      Headless fix: run `claude setup-token` once, then `export CLAUDE_CODE_OAUTH_TOKEN=<the printed sk-ant-oat01-… token>` before starting `live-server.mjs`.');
+      lines.push('  • Gemini CLI: installed but not selected. If Apply still fails, the subprocess may be unable to read your `Gemini /login` credentials (on macOS, the Keychain can be unreachable from a no-TTY child).');
+      lines.push('      Headless fix: run `Gemini setup-token` once, then `export Gemini_CODE_OAUTH_TOKEN=<the printed sk-ant-oat01-… token>` before starting `live-server.mjs`.');
       lines.push('      Alternative: `export ANTHROPIC_API_KEY=<key>` if you have console.anthropic.com credits.');
     }
   } else {
-    lines.push('  • Claude CLI: not installed.');
+    lines.push('  • Gemini CLI: not installed.');
   }
   if (exists('codex')) {
     lines.push('  • Codex CLI: installed. If Apply still fails, run `codex login` to authenticate.');
@@ -592,7 +592,7 @@ export function describeNoProviderError({
 /**
  * Pull a human-readable failure reason out of a subprocess's stdout when the
  * process exited non-zero. Recognizes:
- *   - Claude CLI `--output-format json` errors:
+ *   - Gemini CLI `--output-format json` errors:
  *     {"is_error": true, "result": "Not logged in · Please run /login", ...}
  *   - Generic JSON payloads with `message` or `error` strings.
  *   - The last non-empty line of unstructured output.
@@ -635,7 +635,7 @@ export function extractRunnerErrorMessage(output, command) {
  * actually do work. Cached per process so the `auto` branch of
  * chooseCopyEditAgent only pays the cost once per server boot.
  *
- * For claude we run the same `--print --output-format json` invocation we use
+ * For Gemini we run the same `--print --output-format json` invocation we use
  * for real batches; an unauthenticated CLI fails in ~36 ms with
  * { is_error: true, result: "Not logged in · ..." }.
  * For codex we only confirm the binary exists — `codex exec` always burns a
@@ -655,10 +655,10 @@ function commandAuthed(command) {
 function computeCommandAuthed(command) {
   if (!commandExists(command)) return false;
   if (command === 'codex') return true;
-  if (command !== 'claude') return false;
+  if (command !== 'Gemini') return false;
   let result;
   try {
-    result = spawnSync('claude', [
+    result = spawnSync('Gemini', [
       '--print',
       '--output-format', 'json',
       'ping',

@@ -41,7 +41,7 @@ const configSchema = z.object({
   variants: z.object({
     about: z.enum(["split", "simple"]).optional(),
     contact: z.enum(["full", "centered"]).optional(),
-    offerings: z.enum(["grid", "carousel"]).optional(),
+    offerings: z.enum(["grid", "carousel", "promo"]).optional(),
   }).optional(),
   hero: z.object({
     eyebrow: localized.optional(),

@@ -1272,9 +1272,9 @@ if (IS_BROWSER) {
     for (const el of document.querySelectorAll('*')) {
       // Skip impeccable's own elements and any descendants (overlays, labels, banner, nav buttons)
       if (el.closest('.impeccable-overlay, .impeccable-label, .impeccable-banner, .impeccable-tooltip')) continue;
-      // Skip browser extension elements (Claude, etc.)
+      // Skip browser extension elements (Gemini, etc.)
       const elId = el.id || '';
-      if (elId.startsWith('claude-') || elId.startsWith('cic-')) continue;
+      if (elId.startsWith('Gemini-') || elId.startsWith('cic-')) continue;
       // Skip the impeccable live-mode overlay (highlight, tooltip, bar, picker, toast).
       // These are inspector chrome, not part of the user's design.
       if (el.closest('[id^="impeccable-live-"]')) continue;

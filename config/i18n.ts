@@ -31,6 +31,16 @@ interface UiStrings {
     formTitle: Localized;
     nameLabel: Localized;
     namePlaceholder: Localized;
+    phoneLabel: Localized;
+    phonePlaceholder: Localized;
+    reasonLabel: Localized;
+    reasonPlaceholder: Localized;
+    reasonOptions: {
+      executive: Localized;
+      realEstate: Localized;
+      personal: Localized;
+      other: Localized;
+    };
     messageLabel: Localized;
     messagePlaceholder: Localized;
     submit: Localized;
@@ -84,12 +94,22 @@ export const ui: UiStrings = {
     formTitle: { es: "Dejanos tu mensaje", en: "Leave us a message" },
     nameLabel: { es: "Nombre", en: "Name" },
     namePlaceholder: { es: "¿Cómo te llamás?", en: "What's your name?" },
+    phoneLabel: { es: "Teléfono", en: "Phone" },
+    phonePlaceholder: { es: "Tu número", en: "Your number" },
+    reasonLabel: { es: "Motivo de la consulta", en: "Reason for inquiry" },
+    reasonPlaceholder: { es: "Elegí una opción...", en: "Select an option..." },
+    reasonOptions: {
+      executive: { es: "Coaching Ejecutivo", en: "Executive Coaching" },
+      realEstate: { es: "Coaching Inmobiliario", en: "Real Estate Coaching" },
+      personal: { es: "Life Coaching (Personal)", en: "Life Coaching (Personal)" },
+      other: { es: "Otro", en: "Other" },
+    },
     messageLabel: { es: "Mensaje", en: "Message" },
     messagePlaceholder: {
-      es: "Contanos qué querés pedir…",
-      en: "Tell us what you'd like to order…",
+      es: "Contanos tu consulta...",
+      en: "Tell us about your inquiry...",
     },
-    submit: { es: "Enviar por WhatsApp", en: "Send via WhatsApp" },
+    submit: { es: "Escribinos", en: "Message us" },
   },
   footer: {
     rights: { es: "Todos los derechos reservados.", en: "All rights reserved." },

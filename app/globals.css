@@ -1,13 +1,28 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #1a1a1a;
+  --background: #0A192F;
+  --foreground: #EAEAEA;
 
-  --primary: #1a1a1a;
-  --primary-foreground: #ffffff;
-  --secondary: #4a4a4a;
-  --accent: #f4f4f5;
+  --primary: #C5A059;
+  --primary-foreground: #0A192F;
+  --secondary: #E5C158;
+  --accent: #112240;
+}
+
+.text-gradient-gold {
+  background: linear-gradient(135deg, #E5C158 0%, #C5A059 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.bg-grid-pattern {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
 }
 
 @theme inline {

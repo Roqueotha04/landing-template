@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
+import { Playfair_Display, Open_Sans } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/config/site.config";
 import { LanguageProvider } from "@/components/providers/LanguageProvider";
@@ -7,13 +7,13 @@ import { MotionProvider } from "@/components/providers/MotionProvider";
 import { JsonLd } from "@/components/seo/JsonLd";
 
 // Keep these imports in sync with brand.headingFont / brand.bodyFont in site.config.ts
-const headingFont = Geist({
+const headingFont = Playfair_Display({
   subsets: ["latin"],
   variable: "--font-heading-face",
   display: "swap",
 });
 
-const bodyFont = Geist({
+const bodyFont = Open_Sans({
   subsets: ["latin"],
   variable: "--font-body-face",
   display: "swap",

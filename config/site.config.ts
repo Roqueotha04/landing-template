@@ -3,101 +3,105 @@ import { validateConfig } from "@/lib/validate-config";
 
 export const siteConfig: SiteConfig = validateConfig({
   site: {
-    url: "https://example.com",
+    url: "https://consultoragrondona.com",
     defaultLocale: "es",
   },
   business: {
-    name: "Nombre del Negocio",
-    legalName: "Nombre del Negocio",
-    logoText: "Negocio",
-    phone: "+54 223 555-1234",
-    whatsapp: "542235551234",
-    email: "hola@example.com",
-    address: "Av. Colón 1234, Mar del Plata",
-    mapUrl: "https://maps.google.com/?q=Av.+Colón+1234+Mar+del+Plata",
-    instagram: "negocio",
-    hours: {
-      es: "Lun a Sáb de 9 a 19 hs",
-      en: "Mon to Sat, 9am to 7pm",
-    },
+    name: "Consultora Grondona",
+    legalName: "Consultora Grondona",
+    logoText: "GRONDONA",
+    logo: "/logo.jpeg",
+    phone: "+54 9 11 2855-5848",
+    whatsapp: "5491128555848",
+    email: "info@consultoragrondona.com",
+    instagram: "consultoragrondona",
   },
   brand: {
-    headingFont: "Geist",
-    bodyFont: "Geist",
+    headingFont: "Playfair Display",
+    bodyFont: "Open Sans",
   },
   sections: ["hero", "offerings", "about", "contact"],
+  variants: {
+    offerings: "promo",
+  },
   hero: {
     title: {
-      es: "Tu mejor versión empieza acá",
-      en: "Your best self starts here",
+      es: "Consultora Grondona",
+      en: "Consultora Grondona",
     },
     subtitle: {
-      es: "Una frase corta que explique qué hacés y por qué elegirte.",
-      en: "A short line explaining what you do and why to choose you.",
+      es: "Acompañamiento estratégico y personalizado para potenciar tu desempeño y alcanzar tus metas.",
+      en: "Strategic and personalized support to boost your performance and achieve your goals.",
     },
-    ctaText: {
-      es: "Escribinos",
-      en: "Message us",
-    },
+    ctaText: { es: "Agendá tu Sesión", en: "Book your Session" },
+    secondaryCtaText: { es: "Conocé los Servicios", en: "Explore Services" },
+    backgroundImage: "/logo.jpeg",
   },
   offerings: {
     kind: "services",
-    title: {
-      es: "Servicios",
-      en: "Services",
-    },
-    subtitle: {
-      es: "Lo que hacemos por vos.",
-      en: "What we do for you.",
-    },
+    title: { es: "Nuestros Servicios", en: "Our Services" },
     items: [
       {
-        name: { es: "Servicio uno", en: "Service one" },
+        name: { es: "Coaching Ejecutivo", en: "Executive Coaching" },
         description: {
-          es: "Una descripción breve orientada al beneficio del cliente.",
-          en: "A short, benefit-focused description.",
+          es: "Liderazgo al más alto nivel. Trabajamos juntos para desarrollar una comunicación estratégica y asertiva que logre potenciar tu desempeño profesional. Este programa está diseñado para gerentes, directores y profesionales que buscan desbloquear su máximo potencial, mejorar el clima de sus equipos y alcanzar metas corporativas de alta exigencia.",
+          en: "Leadership at the highest level. We work together to develop strategic communication that boosts your professional performance. Designed for managers and professionals seeking to unlock their full potential and achieve demanding corporate goals.",
         },
+        image: "/coaching-ejecutivo.jpg",
       },
       {
-        name: { es: "Servicio dos", en: "Service two" },
+        name: { es: "Life Coaching (Personal)", en: "Life Coaching (Personal)" },
         description: {
-          es: "Una descripción breve orientada al beneficio del cliente.",
-          en: "A short, benefit-focused description.",
+          es: "Diseñá una vida con propósito. A través del autoconocimiento profundo, te guío para definir con claridad tus metas personales y establecer un plan de acción concreto. Vas a superar creencias limitantes, gestionar mejor tus emociones y encontrar el equilibrio necesario para avanzar hacia la mejor versión de vos mismo en tu día a día.",
+          en: "Design a life with purpose. Through deep self-knowledge, I guide you to clearly define your personal goals and establish a concrete action plan. Overcome limiting beliefs and find the balance needed to move forward.",
         },
-      },
-      {
-        name: { es: "Servicio tres", en: "Service three" },
-        description: {
-          es: "Una descripción breve orientada al beneficio del cliente.",
-          en: "A short, benefit-focused description.",
-        },
+        image: "/coaching-personal.jpg",
       },
     ],
   },
   about: {
     eyebrow: {
-      es: "Nuestra historia",
-      en: "Our story",
+      es: "Sebastián Pedro Grondona",
+      en: "Sebastián Pedro Grondona",
     },
     title: {
-      es: "Sobre nosotros",
-      en: "About us",
+      es: "Sobre Mí",
+      en: "About Me",
     },
     body: {
       es: [
-        "Primer párrafo: el origen o el porqué del negocio. Que suene humano, no corporativo.",
-        "Segundo párrafo: la promesa o el valor que ofrecés al cliente, en tono cercano.",
+        "Acompaño a personas, líderes y equipos a cerrar la brecha entre su realidad actual y sus objetivos más altos. A través de un enfoque centrado en la claridad, el enfoque y la acción, facilito procesos de transformación personal y profesional alineados a resultados reales.",
+        "Ya sea en el ámbito corporativo, en el sector inmobiliario o en tu desarrollo personal, mi compromiso es brindarte un espacio confidencial y a medida para potenciar tu talento.",
       ],
       en: [
-        "First paragraph: the origin or the why behind the business. Human, not corporate.",
-        "Second paragraph: the promise or value you offer the customer, in a warm tone.",
+        "I accompany individuals, leaders, and teams to bridge the gap between their current reality and their highest goals. Through an approach focused on clarity, focus, and action, I facilitate personal and professional transformation processes aligned with real results.",
+        "Whether in the corporate realm, the real estate sector, or your personal development, my commitment is to provide you with a confidential and tailored space to boost your talent.",
       ],
     },
     highlights: [
-      { value: "10+", label: { es: "Años de experiencia", en: "Years of experience" } },
-      { value: "500+", label: { es: "Clientes felices", en: "Happy clients" } },
-      { value: "100%", label: { es: "Compromiso", en: "Commitment" } },
+      {
+        value: "Seguro",
+        label: {
+          es: "Espacio Seguro: Confidencialidad y contención en cada sesión.",
+          en: "Safe Space: Confidentiality and support in every session.",
+        },
+      },
+      {
+        value: "Activa",
+        label: {
+          es: "Escucha Activa: Comprensión profunda de tus desafíos.",
+          en: "Active Listening: Deep understanding of your challenges.",
+        },
+      },
+      {
+        value: "Total",
+        label: {
+          es: "Compromiso Total: Acompañamiento enfocado en tus metas.",
+          en: "Total Commitment: Support focused on your goals.",
+        },
+      },
     ],
+    image: "/sobre-nosotros-nuevo.png",
   },
   contact: {
     title: {
@@ -105,23 +109,23 @@ export const siteConfig: SiteConfig = validateConfig({
       en: "Contact",
     },
     subtitle: {
-      es: "Escribinos por WhatsApp y te respondemos al toque.",
-      en: "Message us on WhatsApp and we'll reply right away.",
+      es: "Da el primer paso hacia tu transformación. Escribinos para empezar.",
+      en: "Take the first step towards your transformation. Message us to start.",
     },
     whatsappMessage: {
-      es: "¡Hola! Quiero hacer una consulta.",
-      en: "Hi! I'd like to make an inquiry.",
+      es: "Hola! Me gustaría recibir mas información sobre el servicio de coaching",
+      en: "Hi! I'd like to receive more information about the coaching service",
     },
   },
   seo: {
     title: {
-      es: "Nombre del Negocio — Rubro en Ciudad",
-      en: "Business Name — Category in City",
+      es: "Consultora Grondona — Coaching Ejecutivo e Inmobiliario",
+      en: "Consultora Grondona — Executive and Real Estate Coaching",
     },
     description: {
-      es: "Descripción del negocio para buscadores. 140-160 caracteres, con la propuesta de valor y la ubicación.",
-      en: "Business description for search engines. 140-160 characters, value proposition and location.",
+      es: "Liderazgo, enfoque y estrategia para alcanzar tu mejor versión. Coaching ejecutivo e inmobiliario por Sebastián Grondona.",
+      en: "Leadership, focus, and strategy to reach your best self. Executive and real estate coaching by Sebastián Grondona.",
     },
-    keywords: ["rubro", "ciudad", "negocio"],
+    keywords: ["coaching", "ejecutivo", "inmobiliario", "liderazgo", "estrategia", "sebastián grondona"],
   },
 });

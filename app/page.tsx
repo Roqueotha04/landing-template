@@ -7,6 +7,7 @@ import { FloatingWhatsApp } from "@/components/ui/FloatingWhatsApp";
 import { Hero } from "@/components/sections/Hero";
 import { Offerings } from "@/components/sections/Offerings";
 import { OfferingsCarousel } from "@/components/sections/OfferingsCarousel";
+import { OfferingsPromo } from "@/components/sections/OfferingsPromo";
 import { AboutSplit } from "@/components/sections/AboutSplit";
 import { About } from "@/components/sections/About";
 import { Contact } from "@/components/sections/Contact";
@@ -19,7 +20,7 @@ const variants = siteConfig.variants;
 
 const sectionComponents: Record<SectionId, ComponentType> = {
   hero: Hero,
-  offerings: (variants?.offerings ?? "grid") === "carousel" ? OfferingsCarousel : Offerings,
+  offerings: variants?.offerings === "promo" ? OfferingsPromo : variants?.offerings === "carousel" ? OfferingsCarousel : Offerings,
   about: (variants?.about ?? "split") === "simple" ? About : AboutSplit,
   contact: (variants?.contact ?? "full") === "centered" ? ContactCentered : Contact,
   testimonials: Testimonials,

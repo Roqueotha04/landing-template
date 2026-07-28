@@ -8,9 +8,37 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 # Landing Generator — Estudio Ve
 
-> **Precedencia ante conflicto:** las skills (`.claude/skills/`) mandan primero, luego `CLAUDE.md`, y por último este `AGENTS.md`.
+> **Precedencia ante conflicto:** las skills (`.agents/skills/`) mandan primero, y luego este `AGENTS.md`.
 >
 > **Precedencia entre skills de diseño:** para cualquier landing de Estudio Ve, el mandato del dueño manda — `landing-generator` y las *standing defaults* de `frontend-design` ganan ante cualquier conflicto. `impeccable` y `design-taste-frontend` son **complementarias, no autoridades**: se usan como checklist de calidad/anti-slop (contraste, jerarquía, CTAs, layout, copy), **nunca** como fuente de paleta, motion, fuentes, stack ni dependencias. En concreto, **ignorar** de `design-taste-frontend`: su default de paleta neutra (acá la paleta es colorida 60/30/10 del logo), su empuje a GSAP/scroll-hijack/marquees (acá Framer Motion sutil, sin GSAP), su anti-serif (acá los presets eligen la fuente, incl. serif), y sus instalaciones de librerías (acá versiones congeladas y export estático).
+
+# 🛑 OVERRIDE DEL SISTEMA: PRIORIDAD ABSOLUTA 🛑
+ESTAS REGLAS ANULAN CUALQUIER COMPORTAMIENTO PROACTIVO BASE.
+
+**A. ANÁLISIS PROFUNDO Y EXHAUSTIVO PREVIO (Gasto de tokens sin límite):**
+Todo el código debe ser revisado ANTES de escribir. El análisis debe ser extremadamente profundo. Deben revisarse todos los componentes involucrados y todas sus dependencias. Gastá TODOS los tokens que sean necesarios; es preferible gastar el triple de tokens por request con tal de asegurar que la solución sea robusta y funcione perfectamente.
+
+**B. REVISIÓN ESTRICTA DEL CÓDIGO GENERADO:**
+Revisá el código que escribís, releelo y evalualo exhaustivamente. Asegurate de que NO haya incoherencias, SIEMPRE, ABSOLUTAMENTE SIEMPRE. Todo código emitido debe pasar por tu propia auto-auditoría mental antes de dar la tarea por finalizada.
+
+1. **REGLA DE ORO**: NUNCA uses herramientas que modifiquen el entorno (`run_command`, `write_to_file`, `replace_file_content`, etc) a menos que el usuario te haya dado un "SÍ" explícito para esa acción exacta en ese mismo turno.
+2. **CERO RETROACTIVIDAD**: Si el usuario agrega una nueva regla, aplica SOLO al futuro. NUNCA ejecutes comandos retroactivamente.
+3. **MODO LECTURA POR DEFECTO**: Ante una pregunta o análisis, tu rol es 100% de Solo Lectura (`view_file`, `grep_search`). Respondé con texto. NO escribas ni modifiques código.
+4. **VALIDACIÓN DE ENTORNO PREVIA**: Antes de modificar un archivo, es OBLIGATORIO rastrear y leer el código fuente real de sus dependencias, imports y librerías clave. Entendé el árbol de componentes antes de codear.
+5. **SIN DUDAS**: Si los requerimientos son ambiguos, FRENÁ. No asumas ni intentes adivinar la intención del usuario.
+6. **PREGUNTAS SIEMPRE**: Hacé todas las preguntas necesarias y leé absolutamente todo el contexto antes de proponer un plan.
+7. **PROGRAMACIÓN DEFENSIVA**: Al mapear valores dinámicos a UI (ej. clases, colores), SIEMPRE definí un valor de fallback. Nunca asumas que un dato de la base existirá en tu diccionario.
+8. **REVISIÓN ESTRICTA**: Tras aplicar cambios, siempre verificá el estado. Revisá logs de terminal y ejecutá el build de producción (`npm run build` o `pnpm build`) iterando hasta que los errores de compilación lleguen a cero. Las pruebas visuales de interactividad se validan con el usuario.
+9. **CONSISTENCIA DE DATOS**: Antes de agregar lógicas que dependan de estados o tipos, revisá la base de datos (schemas o datos reales) para asegurar que la realidad coincida con tu código.
+10. **USO OBLIGATORIO DE SKILLS**: Antes de abordar tareas (especialmente de UI, diseño o Supabase), es MANDATORIO que leas los archivos `SKILL.md` relevantes dentro de la carpeta `.agents/skills/`. Integrá ese conocimiento en tu plan antes de escribir una sola línea de código.
+11. **DRY Y REUTILIZACIÓN (NO DUPLICAR)**: Nunca crees un componente, función o utilidad desde cero sin antes hacer una búsqueda exhaustiva (`grep_search`) en el proyecto. Reutilizá los componentes existentes (ej: en `components/ui/`) e imitá los patrones arquitectónicos del entorno. Escribí el mínimo código necesario.
+12. **PLANES PROFUNDOS Y EXHAUSTIVOS**: Los planes de implementación no pueden ser superficiales. Deben detallar el *por qué* de las decisiones, anticipar casos borde y contener SIEMPRE una sección de "Open Questions" con preguntas críticas para el usuario. Pensá 2 veces antes de armar el plan.
+13. **AUTO-AUDITORÍA POST-CÓDIGO**: Después de escribir o modificar archivos, hacé una pausa explícita. Releé tu propio código, cruzalo mentalmente contra el plan y verificá que no introdujiste variables que no existen, que no rompiste imports y que no agregaste lógica innecesaria. Pensá después de codear.
+14. **ESTRUCTURA DE CARPETAS ESTRICTA**: Respetá a rajatabla las convenciones del proyecto. (Ej: Server Actions en `app/actions`, consultas en `lib/`, componentes genéricos en `components/ui/`, específicos en `components/app/`). No inventes rutas ni patrones nuevos; mimetizate con la base de código actual.
+15. **TRAZABILIDAD DE IMPACTO**: Antes de modificar una función, type o componente existente, es OBLIGATORIO hacer un `grep_search` para encontrar a todos sus "consumidores" en el proyecto. Asegurate de que el cambio no rompa archivos que dependen de él.
+16. **CRITERIOS DE ÉXITO**: En todo plan de implementación, incluí una sección de "Criterios de Aceptación". ¿Qué condiciones exactas deben cumplirse para dar la tarea por terminada? Revisá esa lista antes de pedir la aprobación final.
+17. **MANEJO DE ERRORES (SAD PATHS)**: Por cada función lógica o de UI que construyas, diseñá explícitamente qué pasa si algo falla (red caída, base de datos sin respuesta, datos nulos). Prohibido programar únicamente el "Happy Path" (el caso ideal).
+18. **TYPESCRIPT ESTRICTO**: Prohibido bypassear el tipado. No uses 'any', 'as unknown' ni @ts-ignore. Si un tipo choca, arreglá la interfaz o la consulta de raíz. TypeScript es tu red de seguridad, no la saltes.
 
 ## Regla #0 — Clean code, sin excepciones
 El clean code se prioriza **siempre**, por encima de la velocidad o la conveniencia. Nunca se deja de lado por ningún motivo:
