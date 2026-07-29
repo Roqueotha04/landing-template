@@ -99,7 +99,7 @@ export const siteConfig: SiteConfig = validateConfig({
         },
       },
     ],
-    image: "/logo.jpeg",
+    image: "/imagen-promocional.jpeg",
   },
   contact: {
     title: {
