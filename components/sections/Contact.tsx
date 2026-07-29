@@ -8,7 +8,6 @@ import { useLanguage } from "@/hooks/useLanguage";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
-import { WaveDivider } from "@/components/ui/WaveDivider";
 import { buildWhatsAppLink } from "@/lib/whatsapp";
 import {
   ClockIcon,
@@ -82,11 +81,7 @@ export function Contact() {
   }
 
   return (
-    <Section
-      id="contact"
-      className="bg-background text-foreground relative overflow-hidden"
-      topDivider={<WaveDivider className="fill-accent" />}
-    >
+    <Section id="contact" className="bg-background text-foreground relative overflow-hidden">
       <span
         aria-hidden
         className="pointer-events-none absolute -left-20 bottom-0 h-[500px] w-[500px] rounded-full bg-primary/15 blur-[120px]"
@@ -155,7 +150,7 @@ export function Contact() {
           </div>
           <form
             onSubmit={handleSubmit}
-            className="rounded-sm bg-white/5 border border-white/10 backdrop-blur p-5 md:p-8 shadow-2xl"
+            className="rounded-sm bg-white/5 border border-white/10 backdrop-blur p-5 md:p-8 shadow-lg"
           >
             <div className="space-y-4">
               <label className="block">
@@ -220,7 +215,7 @@ export function Contact() {
 
               <button
                 type="submit"
-                className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-sm bg-primary px-6 text-sm font-bold text-background transition-transform hover:scale-[1.02] shadow-[0_5px_20px_-5px_rgba(197,160,89,0.4)]"
+                className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-sm bg-primary px-6 text-sm font-bold text-background transition-transform hover:scale-[1.02] shadow-[0_4px_16px_-6px_rgba(197,160,89,0.25)]"
               >
                 <MailIcon className="h-5 w-5" />
                 {t(ui.contact.submit)}

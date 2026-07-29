@@ -23,6 +23,10 @@ interface UiStrings {
     requestService: Localized;
     whatsappIntro: Localized;
   };
+  booking: {
+    back: Localized;
+    cta: Localized;
+  };
   contact: {
     phone: Localized;
     email: Localized;
@@ -61,6 +65,7 @@ export const ui: UiStrings = {
     hero: { es: "Inicio", en: "Home" },
     offerings: { es: "Servicios", en: "Services" },
     about: { es: "Nosotros", en: "About" },
+    booking: { es: "Agendar", en: "Book" },
     contact: { es: "Contacto", en: "Contact" },
     testimonials: { es: "Testimonios", en: "Testimonials" },
     gallery: { es: "Galería", en: "Gallery" },
@@ -86,6 +91,10 @@ export const ui: UiStrings = {
     addToCart: { es: "Agregar al carrito", en: "Add to cart" },
     requestService: { es: "Solicitar servicio", en: "Request service" },
     whatsappIntro: { es: "¡Hola! Me interesa:", en: "Hi! I'm interested in:" },
+  },
+  booking: {
+    back: { es: "Volver al inicio", en: "Back to home" },
+    cta: { es: "Ver disponibilidad", en: "See availability" },
   },
   contact: {
     phone: { es: "Teléfono", en: "Phone" },

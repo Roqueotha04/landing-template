@@ -16,6 +16,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }),
   );
 
+  const bookingPage: MetadataRoute.Sitemap = siteConfig.booking
+    ? [
+        {
+          url: `${baseUrl}/agenda`,
+          lastModified: new Date(),
+          changeFrequency: "monthly",
+          priority: 0.8,
+        },
+      ]
+    : [];
+
   return [
     {
       url: baseUrl,
@@ -23,6 +34,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 1,
     },
+    ...bookingPage,
     ...offeringPages,
   ];
 }

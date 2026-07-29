@@ -10,6 +10,7 @@ export type SectionId =
   | "hero"
   | "offerings"
   | "about"
+  | "booking"
   | "contact"
   | "testimonials"
   | "gallery"
@@ -120,6 +121,16 @@ export interface ContactContent {
   whatsappMessage: Localized;
 }
 
+export interface BookingContent {
+  title: Localized;
+  subtitle?: Localized;
+  eyebrow?: Localized;
+  ctaText?: Localized;
+  perks?: Localized[];
+  pageTitle?: Localized;
+  calLink: string;
+}
+
 export interface LegalLink {
   label: Localized;
   href: string;
@@ -141,6 +152,7 @@ export interface SiteConfig {
   hero: HeroContent;
   offerings: OfferingsContent;
   about: AboutContent;
+  booking?: BookingContent;
   contact: ContactContent;
   testimonials?: TestimonialsContent;
   gallery?: GalleryContent;

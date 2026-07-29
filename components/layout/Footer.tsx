@@ -1,19 +1,16 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { siteConfig } from "@/config/site.config";
 import { ui } from "@/config/i18n";
-import type { Localized, SectionId } from "@/config/site.types";
 import { useLanguage } from "@/hooks/useLanguage";
 import { buildWhatsAppLink } from "@/lib/whatsapp";
+import { buildNavItems } from "@/lib/nav";
 import { InstagramIcon, WhatsAppIcon } from "@/components/ui/icons";
 
-const { business, contact, offerings, sections, legalLinks } = siteConfig;
-const navSections: SectionId[] = sections.filter((id) => id !== "hero");
-
-function navLabel(id: SectionId): Localized {
-  return id === "offerings" ? offerings.title : ui.nav[id];
-}
+const { business, contact, legalLinks } = siteConfig;
+const navItems = buildNavItems();
 
 export function Footer() {
   const { t } = useLanguage();
@@ -78,15 +75,25 @@ export function Footer() {
               <span className="text-xs font-bold uppercase tracking-wide text-white/40">
                 {t(ui.footer.sections)}
               </span>
-              {navSections.map((id) => (
-                <a
-                  key={id}
-                  href={`#${id}`}
-                  className="text-sm text-white/70 transition-colors hover:text-white"
-                >
-                  {t(navLabel(id))}
-                </a>
-              ))}
+              {navItems.map((item) =>
+                item.isRoute ? (
+                  <Link
+                    key={item.key}
+                    href={item.href}
+                    className="text-sm text-white/70 transition-colors hover:text-white"
+                  >
+                    {t(item.label)}
+                  </Link>
+                ) : (
+                  <a
+                    key={item.key}
+                    href={item.href}
+                    className="text-sm text-white/70 transition-colors hover:text-white"
+                  >
+                    {t(item.label)}
+                  </a>
+                ),
+              )}
             </nav>
 
             {legalLinks && legalLinks.length > 0 && (

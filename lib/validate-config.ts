@@ -12,7 +12,7 @@ const offeringSchema = z.object({
   slug: z.string().optional(),
 });
 
-const sectionId = z.enum(["hero", "offerings", "about", "contact", "testimonials", "gallery", "faq"]);
+const sectionId = z.enum(["hero", "offerings", "about", "booking", "contact", "testimonials", "gallery", "faq"]);
 
 const configSchema = z.object({
   site: z.object({
@@ -63,6 +63,15 @@ const configSchema = z.object({
     highlights: z.array(z.object({ value: z.string(), label: localized })).optional(),
     image: z.string().optional(),
   }),
+  booking: z.object({
+    title: localized,
+    subtitle: localized.optional(),
+    eyebrow: localized.optional(),
+    ctaText: localized.optional(),
+    perks: z.array(localized).optional(),
+    pageTitle: localized.optional(),
+    calLink: z.string().min(1, "booking.calLink is required"),
+  }).optional(),
   contact: z.object({
     title: localized,
     subtitle: localized,

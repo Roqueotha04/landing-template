@@ -3,7 +3,7 @@
 import type { Localized } from "@/config/site.types";
 import { useLanguage } from "@/hooks/useLanguage";
 
-type HeadingTone = "default" | "onColor";
+type HeadingTone = "default" | "onColor" | "onLight";
 
 interface SectionHeadingProps {
   title: Localized;
@@ -23,6 +23,11 @@ const toneClasses: Record<HeadingTone, { title: string; subtitle: string; eyebro
     title: "text-white",
     subtitle: "text-white/80",
     eyebrow: "bg-white/20 text-white",
+  },
+  onLight: {
+    title: "text-ink",
+    subtitle: "text-ink-muted",
+    eyebrow: "bg-primary/20 text-primary-deep",
   },
 };
 
@@ -46,12 +51,12 @@ export function SectionHeading({
         </span>
       )}
       <h2
-        className={`font-heading text-2xl font-bold tracking-tight md:text-3xl ${styles.title}`}
+        className={`font-heading text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl ${styles.title}`}
       >
         {t(title)}
       </h2>
       {subtitle && (
-        <p className={`mt-3 max-w-xl text-base ${styles.subtitle}`}>{t(subtitle)}</p>
+        <p className={`mt-4 max-w-xl text-base md:text-lg ${styles.subtitle}`}>{t(subtitle)}</p>
       )}
     </div>
   );

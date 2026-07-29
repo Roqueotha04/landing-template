@@ -8,6 +8,18 @@
   --primary-foreground: #0A192F;
   --secondary: #E5C158;
   --accent: #112240;
+
+  /* Warm ivory surfaces for the light block (services + booking).
+     Three steps read as one continuous sheet of paper, not flat white. */
+  --surface: #F5F1EA;
+  --surface-deep: #EDE6D9;
+  --surface-raised: #FCFAF6;
+
+  /* Navy ink for light surfaces. Gold fails contrast as text on ivory
+     (~2.3:1), so it stays an accent and the ink carries the reading. */
+  --ink: #16233A;
+  --ink-muted: #47536B;
+  --primary-deep: #8A6D2F;
 }
 
 .text-gradient-gold {
@@ -18,16 +30,35 @@
   color: transparent;
 }
 
+/* Elevation scale. Two levels only, tinted with the brand navy instead of
+   black — pure black shadows go muddy over warm ivory. */
+.elev-1 {
+  box-shadow:
+    0 1px 2px rgba(10, 25, 47, 0.04),
+    0 4px 12px -4px rgba(10, 25, 47, 0.1);
+}
+
+.elev-2 {
+  box-shadow:
+    0 2px 4px rgba(10, 25, 47, 0.05),
+    0 16px 32px -12px rgba(10, 25, 47, 0.18);
+}
+
+/* Brand glow for the primary CTA — not elevation, so it lives apart. */
+.elev-gold {
+  box-shadow: 0 8px 24px -8px rgba(197, 160, 89, 0.45);
+  transition: box-shadow 300ms ease;
+}
+
+.elev-gold:hover {
+  box-shadow: 0 10px 32px -8px rgba(197, 160, 89, 0.6);
+}
+
 .bg-grid-pattern {
   background-size: 40px 40px;
   background-image: 
     linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-}
-
-.bg-dot-pattern {
-  background-image: radial-gradient(rgba(0, 0, 0, 0.15) 1px, transparent 1px);
-  background-size: 20px 20px;
 }
 
 @theme inline {
@@ -37,6 +68,13 @@
   --color-primary-foreground: var(--primary-foreground);
   --color-secondary: var(--secondary);
   --color-accent: var(--accent);
+
+  --color-surface: var(--surface);
+  --color-surface-deep: var(--surface-deep);
+  --color-surface-raised: var(--surface-raised);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-primary-deep: var(--primary-deep);
 
   --font-heading: var(--font-heading-face);
   --font-body: var(--font-body-face);

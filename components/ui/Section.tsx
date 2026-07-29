@@ -17,8 +17,8 @@ export function Section({
   topDivider,
 }: SectionProps) {
   const shape = stacked
-    ? "-mt-8 rounded-t-[2.5rem] pb-14 pt-16 shadow-[0_-10px_30px_-18px_rgba(0,0,0,0.25)] md:-mt-10 md:pb-20 md:pt-24"
-    : "py-14 md:py-20";
+    ? "-mt-8 rounded-t-[2.5rem] pb-16 pt-20 shadow-[0_-10px_30px_-18px_rgba(0,0,0,0.25)] md:-mt-10 md:pb-24 md:pt-28"
+    : "py-16 md:py-28";
 
   return (
     <section id={id} className={`relative scroll-mt-16 ${shape} ${className}`}>

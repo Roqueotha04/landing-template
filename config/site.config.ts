@@ -20,7 +20,7 @@ export const siteConfig: SiteConfig = validateConfig({
     headingFont: "Playfair Display",
     bodyFont: "Open Sans",
   },
-  sections: ["hero", "offerings", "about", "contact"],
+  sections: ["hero", "offerings", "booking", "about", "contact"],
   variants: {
     offerings: "promo",
   },
@@ -100,6 +100,34 @@ export const siteConfig: SiteConfig = validateConfig({
       },
     ],
     image: "/imagen-promocional.jpeg",
+  },
+  booking: {
+    eyebrow: {
+      es: "Agenda online",
+      en: "Online booking",
+    },
+    title: {
+      es: "Agendá tu Sesión",
+      en: "Book your Session",
+    },
+    subtitle: {
+      es: "Elegí el día y horario que mejor te quede. Vas a recibir la confirmación al instante.",
+      en: "Pick the day and time that works best for you. You'll get instant confirmation.",
+    },
+    pageTitle: {
+      es: "Reservá tu sesión de coaching",
+      en: "Book your coaching session",
+    },
+    ctaText: {
+      es: "Ver disponibilidad",
+      en: "See availability",
+    },
+    perks: [
+      { es: "Sesión online", en: "Online session" },
+      { es: "30 minutos", en: "30 minutes" },
+      { es: "Confirmación inmediata", en: "Instant confirmation" },
+    ],
+    calLink: "https://cal.com/roque-othacehe-xdezkn",
   },
   contact: {
     title: {

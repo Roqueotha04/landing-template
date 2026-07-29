@@ -10,6 +10,7 @@ import { OfferingsCarousel } from "@/components/sections/OfferingsCarousel";
 import { OfferingsPromo } from "@/components/sections/OfferingsPromo";
 import { AboutSplit } from "@/components/sections/AboutSplit";
 import { About } from "@/components/sections/About";
+import { Booking } from "@/components/sections/Booking";
 import { Contact } from "@/components/sections/Contact";
 import { ContactCentered } from "@/components/sections/ContactCentered";
 import { Testimonials } from "@/components/sections/Testimonials";
@@ -22,6 +23,7 @@ const sectionComponents: Record<SectionId, ComponentType> = {
   hero: Hero,
   offerings: variants?.offerings === "promo" ? OfferingsPromo : variants?.offerings === "carousel" ? OfferingsCarousel : Offerings,
   about: (variants?.about ?? "split") === "simple" ? About : AboutSplit,
+  booking: Booking,
   contact: (variants?.contact ?? "full") === "centered" ? ContactCentered : Contact,
   testimonials: Testimonials,
   gallery: Gallery,

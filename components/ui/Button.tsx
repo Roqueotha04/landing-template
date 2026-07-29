@@ -33,7 +33,7 @@ export function Button({
       href={href}
       aria-label={ariaLabel}
       {...externalProps}
-      className={`inline-flex h-12 items-center justify-center rounded-full px-7 text-sm font-medium transition-colors ${variantClasses[variant]} ${className}`}
+      className={`inline-flex h-12 items-center justify-center rounded-sm px-7 text-sm font-medium transition-colors ${variantClasses[variant]} ${className}`}
     >
       {children}
     </a>
