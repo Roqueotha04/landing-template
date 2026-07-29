@@ -15,6 +15,7 @@ interface UiStrings {
   };
   offerings: {
     viewAll: Localized;
+    promoCta: Localized;
   };
   offeringDetail: {
     back: Localized;
@@ -78,6 +79,7 @@ export const ui: UiStrings = {
   },
   offerings: {
     viewAll: { es: "Ver todos", en: "View all" },
+    promoCta: { es: "¡Quiero saber más!", en: "I want to know more!" },
   },
   offeringDetail: {
     back: { es: "Volver", en: "Back" },

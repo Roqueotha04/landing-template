@@ -10,8 +10,12 @@ export function useLocalStorage<T>(
   }, []);
 
   const getSnapshot = useCallback((): T => {
-    const stored = window.localStorage.getItem(key);
-    return stored !== null ? (JSON.parse(stored) as T) : initialValue;
+    try {
+      const stored = window.localStorage.getItem(key);
+      return stored !== null ? (JSON.parse(stored) as T) : initialValue;
+    } catch {
+      return initialValue;
+    }
   }, [key, initialValue]);
 
   const getServerSnapshot = useCallback((): T => initialValue, [initialValue]);
@@ -20,8 +24,12 @@ export function useLocalStorage<T>(
 
   const setValue = useCallback(
     (next: T) => {
-      window.localStorage.setItem(key, JSON.stringify(next));
-      window.dispatchEvent(new StorageEvent("storage", { key }));
+      try {
+        window.localStorage.setItem(key, JSON.stringify(next));
+        window.dispatchEvent(new StorageEvent("storage", { key }));
+      } catch {
+        // localStorage bloqueado o lleno (Safari privado, etc.) — no crashear
+      }
     },
     [key],
   );

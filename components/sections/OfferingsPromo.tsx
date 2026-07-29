@@ -2,13 +2,13 @@
 
 import Image from "next/image";
 import { siteConfig } from "@/config/site.config";
+import { ui } from "@/config/i18n";
 import { useLanguage } from "@/hooks/useLanguage";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
 import { WaveDivider } from "@/components/ui/WaveDivider";
 import { buildWhatsAppLink } from "@/lib/whatsapp";
-import { Button } from "@/components/ui/Button";
 import { ArrowRightIcon } from "@/components/ui/icons";
 
 const { offerings } = siteConfig;
@@ -76,7 +76,7 @@ export function OfferingsPromo() {
             rel="noopener noreferrer"
             className="group inline-flex w-full sm:w-auto items-center justify-center gap-3 rounded-md bg-gradient-to-r from-primary via-[#e5c158] to-primary px-12 sm:px-20 py-4 font-heading text-lg font-bold text-primary-foreground shadow-[0_10px_30px_rgba(197,160,89,0.4)] transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_10px_40px_rgba(197,160,89,0.6)]"
           >
-            ¡Quiero saber mas!
+            {t(ui.offerings.promoCta)}
             <ArrowRightIcon className="h-5 w-5 transition-transform group-hover:translate-x-1" />
           </a>
         </Reveal>

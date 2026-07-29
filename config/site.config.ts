@@ -10,7 +10,7 @@ export const siteConfig: SiteConfig = validateConfig({
     name: "Consultora Grondona",
     legalName: "Consultora Grondona",
     logoText: "GRONDONA",
-    logo: "/logo.jpeg",
+    logo: "/logo-grondona.jpeg",
     phone: "+54 9 11 2855-5848",
     whatsapp: "5491128555848",
     email: "info@consultoragrondona.com",
