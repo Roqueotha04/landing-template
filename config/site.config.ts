@@ -9,7 +9,8 @@ export const siteConfig: SiteConfig = validateConfig({
   business: {
     name: "Consultora Grondona",
     legalName: "Consultora Grondona",
-    logoText: "GRONDONA",
+    logoText: "SG Sebastián Grondona",
+    logoTextShort: "SG",
     logo: "/logo-grondona.jpeg",
     phone: "+54 9 11 2855-5848",
     whatsapp: "5491128555848",
@@ -20,9 +21,9 @@ export const siteConfig: SiteConfig = validateConfig({
     headingFont: "Playfair Display",
     bodyFont: "Open Sans",
   },
-  sections: ["hero", "offerings", "booking", "about", "contact"],
+  sections: ["hero", "offerings", "booking", "whyUs", "about", "contact"],
   variants: {
-    offerings: "promo",
+    offerings: "grid",
   },
   hero: {
     title: {
@@ -42,20 +43,149 @@ export const siteConfig: SiteConfig = validateConfig({
     title: { es: "Nuestros Servicios", en: "Our Services" },
     items: [
       {
-        name: { es: "Coaching Ejecutivo", en: "Executive Coaching" },
-        description: {
-          es: "Liderazgo al más alto nivel. Trabajamos juntos para desarrollar una comunicación estratégica y asertiva que logre potenciar tu desempeño profesional. Este programa está diseñado para gerentes, directores y profesionales que buscan desbloquear su máximo potencial, mejorar el clima de sus equipos y alcanzar metas corporativas de alta exigencia.",
-          en: "Leadership at the highest level. We work together to develop strategic communication that boosts your professional performance. Designed for managers and professionals seeking to unlock their full potential and achieve demanding corporate goals.",
+        name: {
+          es: "Coaching Ejecutivo Individual",
+          en: "Individual Executive Coaching",
         },
-        image: "/coaching-ejecutivo.jpg",
+        description: {
+          es: "Un proceso personalizado para potenciar tu liderazgo, mejorar la toma de decisiones y desarrollar las competencias necesarias para afrontar nuevos desafíos profesionales con confianza y claridad.",
+          en: "A personalized process to boost your leadership, improve decision-making and develop the skills needed to face new professional challenges with confidence and clarity.",
+        },
+        bulletsTitle: { es: "¿En qué te ayudo?", en: "How do I help you?" },
+        bullets: {
+          es: [
+            "Desarrollo de liderazgo.",
+            "Gestión del cambio.",
+            "Comunicación efectiva.",
+            "Inteligencia emocional.",
+            "Toma de decisiones estratégicas.",
+            "Equilibrio entre vida personal y profesional.",
+          ],
+          en: [
+            "Leadership development.",
+            "Change management.",
+            "Effective communication.",
+            "Emotional intelligence.",
+            "Strategic decision-making.",
+            "Balance between personal and professional life.",
+          ],
+        },
       },
       {
-        name: { es: "Life Coaching (Personal)", en: "Life Coaching (Personal)" },
-        description: {
-          es: "Diseñá una vida con propósito. A través del autoconocimiento profundo, te guío para definir con claridad tus metas personales y establecer un plan de acción concreto. Vas a superar creencias limitantes, gestionar mejor tus emociones y encontrar el equilibrio necesario para avanzar hacia la mejor versión de vos mismo en tu día a día.",
-          en: "Design a life with purpose. Through deep self-knowledge, I guide you to clearly define your personal goals and establish a concrete action plan. Overcome limiting beliefs and find the balance needed to move forward.",
+        name: {
+          es: "Coaching para Líderes y Mandos Medios",
+          en: "Coaching for Leaders and Middle Management",
         },
-        image: "/coaching-personal.jpg",
+        description: {
+          es: "Fortalecé las habilidades que necesita un líder moderno para inspirar equipos, gestionar conflictos y alcanzar resultados sostenibles.",
+          en: "Strengthen the skills a modern leader needs to inspire teams, manage conflict and achieve sustainable results.",
+        },
+        bulletsTitle: { es: "Trabajamos en:", en: "We work on:" },
+        bullets: {
+          es: [
+            "Liderazgo consciente.",
+            "Delegación efectiva.",
+            "Motivación de equipos.",
+            "Feedback de alto impacto.",
+            "Resolución de conflictos.",
+            "Gestión del desempeño.",
+          ],
+          en: [
+            "Conscious leadership.",
+            "Effective delegation.",
+            "Team motivation.",
+            "High-impact feedback.",
+            "Conflict resolution.",
+            "Performance management.",
+          ],
+        },
+      },
+      {
+        name: { es: "Coaching para Empresas", en: "Coaching for Companies" },
+        description: {
+          es: "Diseño procesos de coaching adaptados a las necesidades de cada organización para desarrollar líderes más preparados, equipos más comprometidos y una cultura orientada a resultados.",
+          en: "I design coaching processes adapted to the needs of each organization to develop better-prepared leaders, more committed teams and a results-oriented culture.",
+        },
+        bulletsTitle: { es: "Beneficios", en: "Benefits" },
+        bullets: {
+          es: [
+            "Mayor productividad.",
+            "Mejor clima laboral.",
+            "Desarrollo del talento.",
+            "Liderazgo alineado con los objetivos del negocio.",
+            "Gestión efectiva del cambio.",
+          ],
+          en: [
+            "Greater productivity.",
+            "Better workplace climate.",
+            "Talent development.",
+            "Leadership aligned with business objectives.",
+            "Effective change management.",
+          ],
+        },
+      },
+      {
+        name: {
+          es: "Desarrollo de Habilidades Directivas",
+          en: "Management Skills Development",
+        },
+        description: {
+          es: "Un programa orientado a fortalecer las competencias clave que distinguen a los líderes de alto desempeño.",
+          en: "A program aimed at strengthening the key competencies that set high-performing leaders apart.",
+        },
+        bulletsTitle: { es: "Competencias", en: "Competencies" },
+        bullets: {
+          es: [
+            "Comunicación estratégica.",
+            "Negociación.",
+            "Gestión del tiempo.",
+            "Pensamiento crítico.",
+            "Liderazgo situacional.",
+            "Gestión emocional.",
+          ],
+          en: [
+            "Strategic communication.",
+            "Negotiation.",
+            "Time management.",
+            "Critical thinking.",
+            "Situational leadership.",
+            "Emotional management.",
+          ],
+        },
+      },
+      {
+        name: {
+          es: "Coaching para Transiciones Profesionales",
+          en: "Coaching for Career Transitions",
+        },
+        description: {
+          es: "Acompaño a profesionales que atraviesan cambios importantes en su carrera, como ascensos, nuevos desafíos, cambios de empresa o emprendimientos, brindando herramientas para afrontar cada etapa con seguridad y visión estratégica.",
+          en: "I support professionals going through major career changes — promotions, new challenges, company moves or new ventures — providing tools to face each stage with confidence and strategic vision.",
+        },
+      },
+      {
+        name: { es: "Sesiones de Alto Impacto", en: "High-Impact Sessions" },
+        description: {
+          es: "Cuando necesitás claridad para resolver un desafío específico, una sesión intensiva puede ayudarte a ordenar ideas, ampliar tu perspectiva y definir un plan de acción concreto en pocas horas.",
+          en: "When you need clarity to solve a specific challenge, an intensive session can help you organize your ideas, broaden your perspective and define a concrete action plan in just a few hours.",
+        },
+        bulletsTitle: { es: "Ideal para:", en: "Ideal for:" },
+        bullets: {
+          es: [
+            "Decisiones importantes.",
+            "Conversaciones difíciles.",
+            "Preparación para entrevistas o presentaciones.",
+            "Resolución de conflictos.",
+            "Planificación de objetivos.",
+          ],
+          en: [
+            "Important decisions.",
+            "Difficult conversations.",
+            "Preparing for interviews or presentations.",
+            "Conflict resolution.",
+            "Goal planning.",
+          ],
+        },
       },
     ],
   },
@@ -65,15 +195,19 @@ export const siteConfig: SiteConfig = validateConfig({
       en: "Sebastián Pedro Grondona",
     },
     title: {
-      es: "Sobre Nosotros",
-      en: "About Us",
+      es: "Quién Soy",
+      en: "Who I Am",
     },
     body: {
       es: [
-        "Acompañamos a personas, líderes y equipos a cerrar la brecha entre su realidad actual y sus objetivos más altos. A través de un enfoque centrado en la claridad, el enfoque y la acción, facilitamos procesos de transformación personal y profesional alineados a resultados reales.",
+        "Soy Sebastián Pedro Grondona, Coach Ejecutivo certificado y fundador de Consultora Grondona, un espacio dedicado a acompañar a personas, profesionales, emprendedores y organizaciones en el desarrollo de su máximo potencial.",
+        "Mi formación incluye las carreras de Martillero y Corredor Inmobiliario, Docencia en la Universidad de Ciencias Empresariales y Sociales (UCES) y la Certificación en Coaching Ejecutivo otorgada por Axón. A lo largo de los años he complementado mi preparación con diversas capacitaciones en liderazgo, comunicación, desarrollo personal, gestión de equipos y habilidades profesionales.",
+        "Creo firmemente que cada persona posee recursos y capacidades extraordinarias que, con el acompañamiento adecuado, pueden transformarse en resultados concretos. Mi trabajo consiste en ayudar a identificar objetivos claros, superar obstáculos, fortalecer el liderazgo y diseñar planes de acción que permitan alcanzar metas personales y profesionales de manera efectiva.",
       ],
       en: [
-        "We accompany individuals, leaders, and teams to bridge the gap between their current reality and their highest goals. Through an approach focused on clarity, focus, and action, we facilitate personal and professional transformation processes aligned with real results.",
+        "I am Sebastián Pedro Grondona, certified Executive Coach and founder of Consultora Grondona, a space dedicated to supporting individuals, professionals, entrepreneurs and organizations in developing their full potential.",
+        "My training includes the Real Estate Broker and Auctioneer degrees, Teaching at the University of Business and Social Sciences (UCES) and the Executive Coaching Certification awarded by Axón. Over the years I have complemented my preparation with a range of programs in leadership, communication, personal development, team management and professional skills.",
+        "I firmly believe that every person holds extraordinary resources and capabilities that, with the right support, can be turned into concrete results. My work consists of helping to identify clear objectives, overcome obstacles, strengthen leadership and design action plans that make it possible to reach personal and professional goals effectively.",
       ],
     },
     highlights: [
@@ -99,7 +233,72 @@ export const siteConfig: SiteConfig = validateConfig({
         },
       },
     ],
-    image: "/imagen-promocional.jpeg",
+    image: "/Sebastian.png",
+  },
+  whyUs: {
+    title: {
+      es: "¿Por Qué Elegir Consultora Grondona?",
+      en: "Why Choose Consultora Grondona?",
+    },
+    reasons: [
+      {
+        title: {
+          es: "Porque el cambio es posible cuando existe acompañamiento profesional",
+          en: "Because change is possible when there is professional support",
+        },
+        body: {
+          es: [
+            "Nuestro propósito es acompañarte en ese camino de transformación, brindándote un espacio de escucha, reflexión y aprendizaje donde puedas descubrir nuevas posibilidades y convertir tus desafíos en oportunidades de crecimiento.",
+          ],
+          en: [
+            "Our purpose is to accompany you on that path of transformation, offering you a space for listening, reflection and learning where you can discover new possibilities and turn your challenges into opportunities for growth.",
+          ],
+        },
+      },
+      {
+        title: {
+          es: "Porque cada persona es única",
+          en: "Because every person is unique",
+        },
+        body: {
+          es: [
+            "No existen soluciones universales. Cada proceso de coaching es diseñado de manera personalizada, respetando la historia, los valores, los objetivos y las necesidades de cada cliente.",
+          ],
+          en: [
+            "There are no universal solutions. Every coaching process is designed in a personalized way, respecting the history, values, objectives and needs of each client.",
+          ],
+        },
+      },
+      {
+        title: {
+          es: "Porque creemos en el potencial humano",
+          en: "Because we believe in human potential",
+        },
+        body: {
+          es: [
+            "Las personas suelen ser mucho más capaces de lo que imaginan. A través del coaching ayudamos a identificar fortalezas, superar limitaciones, potenciar habilidades y desarrollar una mentalidad orientada al crecimiento.",
+          ],
+          en: [
+            "People are usually far more capable than they imagine. Through coaching we help identify strengths, overcome limitations, enhance skills and develop a growth-oriented mindset.",
+          ],
+        },
+      },
+      {
+        title: {
+          es: "Porque promovemos cambios reales y sostenibles",
+          en: "Because we promote real and sustainable change",
+        },
+        body: {
+          es: [
+            "Nuestro enfoque combina reflexión y acción. No se trata solamente de comprender una situación, sino de generar cambios concretos que impacten positivamente en la vida personal, familiar, profesional y social.",
+          ],
+          en: [
+            "Our approach combines reflection and action. It is not only about understanding a situation, but about generating concrete changes that have a positive impact on personal, family, professional and social life.",
+          ],
+        },
+      },
+    ],
+    image: "/logo-grondona.jpeg",
   },
   booking: {
     eyebrow: {
@@ -145,13 +344,20 @@ export const siteConfig: SiteConfig = validateConfig({
   },
   seo: {
     title: {
-      es: "Consultora Grondona — Coaching Ejecutivo e Inmobiliario",
-      en: "Consultora Grondona — Executive and Real Estate Coaching",
+      es: "Consultora Grondona — Coaching Ejecutivo y Liderazgo",
+      en: "Consultora Grondona — Executive Coaching and Leadership",
     },
     description: {
-      es: "Liderazgo, enfoque y estrategia para alcanzar tu mejor versión. Coaching ejecutivo e inmobiliario por Sebastián Grondona.",
-      en: "Leadership, focus, and strategy to reach your best self. Executive and real estate coaching by Sebastián Grondona.",
+      es: "Liderazgo, enfoque y estrategia para alcanzar tu mejor versión. Coaching ejecutivo, de equipos y para empresas por Sebastián Grondona.",
+      en: "Leadership, focus, and strategy to reach your best self. Executive, team and corporate coaching by Sebastián Grondona.",
     },
-    keywords: ["coaching", "ejecutivo", "inmobiliario", "liderazgo", "estrategia", "sebastián grondona"],
+    keywords: [
+      "coaching ejecutivo",
+      "coaching para empresas",
+      "liderazgo",
+      "habilidades directivas",
+      "desarrollo profesional",
+      "sebastián grondona",
+    ],
   },
 });

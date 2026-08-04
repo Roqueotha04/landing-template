@@ -7,6 +7,7 @@ import { useLanguage } from "@/hooks/useLanguage";
 import { AGENDA_ROUTE } from "@/lib/nav";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { Reveal } from "@/components/ui/Reveal";
+import { ArrowRightIcon } from "@/components/ui/icons";
 
 const { hero, booking } = siteConfig;
 
@@ -18,6 +19,12 @@ export function Hero() {
       id="hero"
       className="relative w-full overflow-hidden bg-background bg-grid-pattern text-foreground"
     >
+      <div aria-hidden className="pointer-events-none absolute inset-0 z-0">
+        <span className="hero-orb-a absolute -left-24 top-4 h-80 w-80 rounded-full bg-primary/40 blur-3xl" />
+        <span className="hero-orb-b absolute -right-16 bottom-0 h-96 w-96 rounded-full bg-secondary/30 blur-3xl" />
+        <span className="hero-spotlight absolute left-0 top-1/4 h-[28rem] w-[38rem] max-w-full" />
+      </div>
+
       <div className="relative mx-auto flex flex-col md:grid md:grid-cols-[1.2fr_1fr] md:grid-rows-[auto_1fr] items-center md:items-center w-full max-w-6xl gap-10 md:gap-x-16 md:gap-y-8 px-6 py-16 md:px-8 md:py-32 z-10">
 
         {/* Columna Izquierda: Texto y Botones agrupados para centrado vertical */}
@@ -33,14 +40,15 @@ export function Hero() {
           </Reveal>
 
           {/* Botones */}
-          <Reveal delay={0.2} className="flex flex-col items-center md:items-start text-center md:text-left gap-8">
-            <div className="flex flex-col w-full sm:flex-row gap-4 justify-center md:justify-start">
+          <Reveal delay={0.2} className="flex flex-col items-center md:items-start text-center md:text-left gap-5">
+            <div className="flex flex-col w-full sm:flex-row sm:items-center gap-4 justify-center md:justify-start">
               {booking ? (
                 <Link
                   href={AGENDA_ROUTE}
-                  className="inline-flex w-full sm:w-auto h-[52px] items-center justify-center rounded-sm bg-primary px-8 text-base font-bold text-primary-foreground shadow-lg shadow-primary/20 transition-all hover:scale-[1.02] hover:opacity-95"
+                  className="cta-shine elev-gold group relative inline-flex w-full sm:w-auto h-[60px] items-center justify-center gap-3 overflow-hidden rounded-sm bg-gradient-to-r from-secondary to-primary px-10 font-heading text-lg font-bold text-primary-foreground transition-transform duration-300 hover:scale-[1.03]"
                 >
                   {t(hero.ctaText)}
+                  <ArrowRightIcon className="h-5 w-5 transition-transform group-hover:translate-x-1" />
                 </Link>
               ) : (
                 <WhatsAppButton label={t(hero.ctaText)} className="w-full sm:w-auto text-primary-foreground font-bold shadow-lg shadow-primary/20 flex justify-center" />
@@ -49,12 +57,30 @@ export function Hero() {
               {hero.secondaryCtaText && (
                 <Link
                   href="/#offerings"
-                  className="inline-flex w-full sm:w-auto h-[52px] items-center justify-center rounded-sm bg-white/10 px-8 text-base font-bold text-foreground border border-primary/40 transition-all hover:bg-white/20 hover:border-primary/70 hover:scale-[1.02]"
+                  className="inline-flex w-full sm:w-auto items-center justify-center px-2 py-2 text-base font-semibold text-foreground/70 underline-offset-8 transition-colors hover:text-primary hover:underline"
                 >
                   {t(hero.secondaryCtaText)}
                 </Link>
               )}
             </div>
+
+            {booking?.perks && booking.perks.length > 0 && (
+              <ul className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 md:justify-start">
+                {booking.perks.map((perk, index) => (
+                  <li
+                    key={perk.es}
+                    className="flex items-center gap-3 text-sm font-medium text-foreground/60"
+                  >
+                    {index > 0 && (
+                      <span aria-hidden className="text-primary/50">
+                        ·
+                      </span>
+                    )}
+                    {t(perk)}
+                  </li>
+                ))}
+              </ul>
+            )}
           </Reveal>
         </div>
 
@@ -64,16 +90,30 @@ export function Hero() {
             delay={0.1}
             className="w-full max-w-[220px] sm:max-w-[280px] md:max-w-[280px] lg:max-w-[320px] mx-auto flex justify-center md:col-start-2 md:row-start-1 md:row-span-2 order-first md:order-none mb-8 md:mb-0"
           >
-            <div className="relative aspect-square w-full rounded-sm overflow-hidden border border-primary/30 shadow-[0_15px_40px_-15px_rgba(0,0,0,0.5)] bg-white">
-              <div className="absolute inset-0 bg-white img-shimmer" />
-              <Image
-                src={hero.backgroundImage}
-                alt={t(hero.title)}
-                fill
-                priority
-                sizes="(max-width: 768px) 90vw, 50vw"
-                className="object-cover"
+            <div className="relative aspect-square w-full">
+              <span
+                aria-hidden
+                className="absolute -inset-6 rounded-full bg-primary/15 blur-2xl"
               />
+              <span
+                aria-hidden
+                className="hero-orbit absolute -inset-3 rounded-full"
+              />
+              <span
+                aria-hidden
+                className="absolute -inset-3 rounded-full ring-1 ring-primary/20"
+              />
+              <div className="relative h-full w-full overflow-hidden rounded-full ring-2 ring-primary/45 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.6)] bg-white">
+                <div className="absolute inset-0 bg-white img-shimmer" />
+                <Image
+                  src={hero.backgroundImage}
+                  alt={t(hero.title)}
+                  fill
+                  priority
+                  sizes="(max-width: 768px) 90vw, 50vw"
+                  className="object-cover object-[50%_30%] scale-105"
+                />
+              </div>
             </div>
           </Reveal>
         )}

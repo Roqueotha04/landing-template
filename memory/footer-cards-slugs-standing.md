@@ -12,5 +12,7 @@ Mandatos del dueño para TODO cliente del template (2026-06-11), ya implementado
 - **Cada producto/servicio tiene slug + página de detalle** estática en `/oferta/[slug]` (título y descripción autogenerados, precio si lo da el cliente). El botón es "Agregar al carrito" (products) / "Solicitar servicio" (services) y **abre WhatsApp con el ítem** — sin carrito real.
 - En la sección de oferta hay un botón **"Ver todos"** (estético, sin función por ahora). Los links legales del footer también son estéticos.
 
+**Excepción vigente — Consultora Grondona (2026-08-04), solo este cliente:** sus cards de servicio no llevan punteos (los bullets viven en `/oferta/[slug]`), y por pedido explícito del dueño van **25% más anchas y con 20% más de gap**: `md:max-w-[72.25rem]` + `md:gap-[3.6rem]` (contra el baseline `58rem`/`gap-12`), sobre un `<Section wide>` que sube el wrapper a `max-w-7xl`. Mobile `w-[62vw]`/`sm:w-[40vw]`. Sigue siendo 3 por fila en desktop y el botón "Ver todos" sigue estando. **El baseline del template NO cambia:** cualquier cliente nuevo arranca en `58rem`/`gap-12`.
+
 **Why:** el dueño los pidió explícitamente como reglas permanentes, no como ajuste de un cliente.
-**How to apply:** ya están en el código del template; cada cliente nuevo los hereda. No revertir a footer curvo ni agrandar cards. Complementa [[landing-standing-corrections]].
+**How to apply:** ya están en el código del template; cada cliente nuevo los hereda. No revertir a footer curvo ni agrandar cards — salvo la excepción de Grondona anotada arriba, que no hay que "corregir" de vuelta a 58rem. Complementa [[landing-standing-corrections]].

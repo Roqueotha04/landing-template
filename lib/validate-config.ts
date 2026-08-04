@@ -7,12 +7,25 @@ const localizedArray = z.object({ es: z.array(z.string()), en: z.array(z.string(
 const offeringSchema = z.object({
   name: localized,
   description: localized,
+  bulletsTitle: localized.optional(),
+  bullets: localizedArray.optional(),
   price: z.string().optional(),
   image: z.string().optional(),
   slug: z.string().optional(),
 });
 
-const sectionId = z.enum(["hero", "offerings", "about", "booking", "contact", "testimonials", "gallery", "faq"]);
+const sectionId = z.enum([
+  "hero",
+  "presentation",
+  "offerings",
+  "about",
+  "whyUs",
+  "booking",
+  "contact",
+  "testimonials",
+  "gallery",
+  "faq",
+]);
 
 const configSchema = z.object({
   site: z.object({
@@ -23,6 +36,7 @@ const configSchema = z.object({
     name: z.string().min(1, "business.name is required"),
     legalName: z.string().optional(),
     logoText: z.string().optional(),
+    logoTextShort: z.string().optional(),
     logo: z.string().optional(),
     phone: z.string().min(1, "business.phone is required"),
     whatsapp: z.string().min(1, "business.whatsapp is required"),
@@ -47,9 +61,17 @@ const configSchema = z.object({
     eyebrow: localized.optional(),
     title: localized,
     subtitle: localized,
+    body: localized.optional(),
     ctaText: localized,
+    secondaryCtaText: localized.optional(),
     backgroundImage: z.string().optional(),
   }),
+  presentation: z.object({
+    title: localized,
+    eyebrow: localized.optional(),
+    body: localizedArray,
+    image: z.string().optional(),
+  }).optional(),
   offerings: z.object({
     kind: z.enum(["services", "products"]),
     title: localized,
@@ -63,6 +85,15 @@ const configSchema = z.object({
     highlights: z.array(z.object({ value: z.string(), label: localized })).optional(),
     image: z.string().optional(),
   }),
+  whyUs: z.object({
+    title: localized,
+    eyebrow: localized.optional(),
+    subtitle: localized.optional(),
+    reasons: z
+      .array(z.object({ title: localized, body: localizedArray }))
+      .min(1, "At least one whyUs reason is required"),
+    image: z.string().optional(),
+  }).optional(),
   booking: z.object({
     title: localized,
     subtitle: localized.optional(),

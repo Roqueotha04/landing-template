@@ -193,8 +193,8 @@ export function Contact() {
                 >
                   <option value="" disabled className="text-black bg-white">{t(ui.contact.reasonPlaceholder)}</option>
                   <option value="executive" className="text-black bg-white">{t(ui.contact.reasonOptions.executive)}</option>
-                  <option value="realEstate" className="text-black bg-white">{t(ui.contact.reasonOptions.realEstate)}</option>
-                  <option value="personal" className="text-black bg-white">{t(ui.contact.reasonOptions.personal)}</option>
+                  <option value="leaders" className="text-black bg-white">{t(ui.contact.reasonOptions.leaders)}</option>
+                  <option value="company" className="text-black bg-white">{t(ui.contact.reasonOptions.company)}</option>
                   <option value="other" className="text-black bg-white">{t(ui.contact.reasonOptions.other)}</option>
                 </select>
               </label>

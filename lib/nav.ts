@@ -21,11 +21,15 @@ function navLabel(id: SectionId): Localized {
  *
  * Anchors are absolute (`/#about`, not `#about`) so they also work from
  * routes other than the home page. The `booking` section is skipped: its
- * place in the menu is taken by the `/agenda` route link below.
+ * place in the menu is taken by the `/agenda` route link below. `presentation`
+ * is skipped too — it reads as part of the opening, and adding it overflows
+ * the bar on desktop.
  */
+const HIDDEN_FROM_NAV: SectionId[] = ["hero", "presentation", "booking"];
+
 export function buildNavItems(): NavItem[] {
   const sectionItems: NavItem[] = siteConfig.sections
-    .filter((id) => id !== "hero" && id !== "booking")
+    .filter((id) => !HIDDEN_FROM_NAV.includes(id))
     .map((id) => ({ key: id, href: `/#${id}`, label: navLabel(id) }));
 
   if (!siteConfig.booking) return sectionItems;

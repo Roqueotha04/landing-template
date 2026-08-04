@@ -8,8 +8,10 @@ export type OfferingKind = "services" | "products";
 
 export type SectionId =
   | "hero"
+  | "presentation"
   | "offerings"
   | "about"
+  | "whyUs"
   | "booking"
   | "contact"
   | "testimonials"
@@ -60,6 +62,8 @@ export interface FaqContent {
 export interface Offering {
   name: Localized;
   description: Localized;
+  bulletsTitle?: Localized;
+  bullets?: Localized<string[]>;
   price?: string;
   image?: string;
   slug?: string;
@@ -74,6 +78,7 @@ export interface Business {
   name: string;
   legalName?: string;
   logoText?: string;
+  logoTextShort?: string;
   logo?: string;
   phone: string;
   whatsapp: string;
@@ -105,6 +110,26 @@ export interface OfferingsContent {
   title: Localized;
   subtitle?: Localized;
   items: Offering[];
+}
+
+export interface PresentationContent {
+  title: Localized;
+  eyebrow?: Localized;
+  body: Localized<string[]>;
+  image?: string;
+}
+
+export interface WhyUsReason {
+  title: Localized;
+  body: Localized<string[]>;
+}
+
+export interface WhyUsContent {
+  title: Localized;
+  eyebrow?: Localized;
+  subtitle?: Localized;
+  reasons: WhyUsReason[];
+  image?: string;
 }
 
 export interface AboutContent {
@@ -150,8 +175,10 @@ export interface SiteConfig {
   sections: SectionId[];
   variants?: SectionVariants;
   hero: HeroContent;
+  presentation?: PresentationContent;
   offerings: OfferingsContent;
   about: AboutContent;
+  whyUs?: WhyUsContent;
   booking?: BookingContent;
   contact: ContactContent;
   testimonials?: TestimonialsContent;

@@ -6,6 +6,7 @@ interface SectionProps {
   className?: string;
   children: ReactNode;
   stacked?: boolean;
+  wide?: boolean;
   topDivider?: ReactNode;
 }
 
@@ -14,6 +15,7 @@ export function Section({
   className = "",
   children,
   stacked = false,
+  wide = false,
   topDivider,
 }: SectionProps) {
   const shape = stacked
@@ -23,7 +25,11 @@ export function Section({
   return (
     <section id={id} className={`relative scroll-mt-16 ${shape} ${className}`}>
       {topDivider}
-      <div className="mx-auto w-full max-w-6xl px-6 md:px-8">{children}</div>
+      <div
+        className={`mx-auto w-full px-6 md:px-8 ${wide ? "max-w-7xl" : "max-w-6xl"}`}
+      >
+        {children}
+      </div>
     </section>
   );
 }

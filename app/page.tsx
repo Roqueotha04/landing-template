@@ -5,6 +5,8 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { FloatingWhatsApp } from "@/components/ui/FloatingWhatsApp";
 import { Hero } from "@/components/sections/Hero";
+import { Presentation } from "@/components/sections/Presentation";
+import { WhyUs } from "@/components/sections/WhyUs";
 import { Offerings } from "@/components/sections/Offerings";
 import { OfferingsCarousel } from "@/components/sections/OfferingsCarousel";
 import { OfferingsPromo } from "@/components/sections/OfferingsPromo";
@@ -21,8 +23,10 @@ const variants = siteConfig.variants;
 
 const sectionComponents: Record<SectionId, ComponentType> = {
   hero: Hero,
+  presentation: Presentation,
   offerings: variants?.offerings === "promo" ? OfferingsPromo : variants?.offerings === "carousel" ? OfferingsCarousel : Offerings,
   about: (variants?.about ?? "split") === "simple" ? About : AboutSplit,
+  whyUs: WhyUs,
   booking: Booking,
   contact: (variants?.contact ?? "full") === "centered" ? ContactCentered : Contact,
   testimonials: Testimonials,

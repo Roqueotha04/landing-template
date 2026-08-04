@@ -9,17 +9,17 @@
   --secondary: #E5C158;
   --accent: #112240;
 
-  /* Warm ivory surfaces for the light block (services + booking).
-     Three steps read as one continuous sheet of paper, not flat white. */
-  --surface: #F5F1EA;
-  --surface-deep: #EDE6D9;
-  --surface-raised: #FCFAF6;
+  /* Pastel brown / gold surfaces for the light block (services, booking,
+     why-us). Three steps read as one continuous sheet of warm paper. */
+  --surface: #F0E4D2;
+  --surface-deep: #E2D0B4;
+  --surface-raised: #FAF3E7;
 
-  /* Navy ink for light surfaces. Gold fails contrast as text on ivory
-     (~2.3:1), so it stays an accent and the ink carries the reading. */
+  /* Navy ink for light surfaces. Gold fails contrast as text on the warm
+     browns (~2.2:1), so it stays an accent and the ink carries the reading. */
   --ink: #16233A;
   --ink-muted: #47536B;
-  --primary-deep: #8A6D2F;
+  --primary-deep: #7A5A22;
 }
 
 .text-gradient-gold {
@@ -30,18 +30,19 @@
   color: transparent;
 }
 
-/* Elevation scale. Two levels only, tinted with the brand navy instead of
-   black — pure black shadows go muddy over warm ivory. */
-.elev-1 {
+/* Elevation scale. Two levels only, tinted warm brown instead of black —
+   pure black shadows go muddy over the pastel brown surfaces. Declared as
+   utilities so they can carry variants (`hover:elev-2`). */
+@utility elev-1 {
   box-shadow:
-    0 1px 2px rgba(10, 25, 47, 0.04),
-    0 4px 12px -4px rgba(10, 25, 47, 0.1);
+    0 1px 2px rgba(74, 54, 26, 0.05),
+    0 4px 12px -4px rgba(74, 54, 26, 0.12);
 }
 
-.elev-2 {
+@utility elev-2 {
   box-shadow:
-    0 2px 4px rgba(10, 25, 47, 0.05),
-    0 16px 32px -12px rgba(10, 25, 47, 0.18);
+    0 2px 4px rgba(74, 54, 26, 0.06),
+    0 16px 32px -12px rgba(74, 54, 26, 0.2);
 }
 
 /* Brand glow for the primary CTA — not elevation, so it lives apart. */
@@ -103,4 +104,114 @@ body {
   );
   background-size: 200% 100%;
   animation: shimmer 1.5s ease-in-out infinite;
+}
+
+/* Hero ambience. Pure CSS instead of Framer so the whole set is inert on
+   the server, costs no JS, and switches off through one media query. */
+
+@keyframes spin-slow {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes drift-a {
+  0%, 100% { transform: translate3d(0, 0, 0); opacity: 0.22; }
+  50% { transform: translate3d(34px, -26px, 0); opacity: 0.4; }
+}
+
+@keyframes drift-b {
+  0%, 100% { transform: translate3d(0, 0, 0); opacity: 0.16; }
+  50% { transform: translate3d(-28px, 22px, 0); opacity: 0.32; }
+}
+
+@keyframes breathe {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.08); opacity: 0.8; }
+}
+
+/* Gold sweep orbiting the hero portrait: a conic gradient masked down to a
+   hairline ring, so only the rim reads as light travelling around. */
+.hero-orbit {
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    transparent 200deg,
+    var(--primary) 300deg,
+    var(--secondary) 340deg,
+    transparent 360deg
+  );
+  mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 3px));
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 3px));
+  animation: spin-slow 24s linear infinite;
+}
+
+.hero-orb-a {
+  animation: drift-a 14s ease-in-out infinite;
+}
+
+.hero-orb-b {
+  animation: drift-b 19s ease-in-out infinite;
+}
+
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+/* Keeps the booking-preview CTA from reading as glued to the calendar grid.
+   Dropped (not paused) on hover: a paused animation still owns `transform`
+   and would swallow the hover scale. */
+.cta-float {
+  animation: float-y 2.8s ease-in-out infinite;
+}
+
+.group:hover .cta-float {
+  animation: none;
+}
+
+@keyframes shine {
+  from { transform: translateX(-120%) skewX(-20deg); }
+  to { transform: translateX(320%) skewX(-20deg); }
+}
+
+/* Light sweeping across the primary CTA on hover. The band lives in a
+   pseudo-element so the button keeps its own background. */
+.cta-shine::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 35%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.45),
+    transparent
+  );
+  transform: translateX(-120%) skewX(-20deg);
+}
+
+.cta-shine:hover::after {
+  animation: shine 900ms ease-out;
+}
+
+.hero-spotlight {
+  background: radial-gradient(
+    closest-side,
+    color-mix(in srgb, var(--primary), transparent 78%),
+    transparent
+  );
+  animation: breathe 11s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-orbit,
+  .hero-orb-a,
+  .hero-orb-b,
+  .hero-spotlight,
+  .cta-shine:hover::after,
+  .cta-float,
+  .img-shimmer {
+    animation: none;
+  }
 }

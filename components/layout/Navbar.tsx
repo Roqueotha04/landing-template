@@ -47,7 +47,12 @@ export function Navbar() {
             />
           )}
           <span className="font-heading text-lg font-bold text-primary">
-            {business.logoText ?? business.name}
+            <span className="sm:hidden">
+              {business.logoTextShort ?? business.logoText ?? business.name}
+            </span>
+            <span className="hidden sm:inline">
+              {business.logoText ?? business.name}
+            </span>
           </span>
         </Link>
 

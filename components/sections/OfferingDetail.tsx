@@ -26,6 +26,7 @@ export function OfferingDetail({
     item.price ? ` (${item.price})` : ""
   }`;
   const whatsappHref = buildWhatsAppLink(business.whatsapp, message);
+  const bullets = item.bullets ? t(item.bullets) : [];
 
   return (
     <section className="mx-auto w-full max-w-5xl px-6 py-12 md:px-8 md:py-16">
@@ -37,9 +38,11 @@ export function OfferingDetail({
         {t(ui.offeringDetail.back)}
       </Link>
 
-      <div className="mt-6 grid gap-8 md:grid-cols-2 md:items-start md:gap-12">
-        <div className="relative aspect-square w-full overflow-hidden rounded-3xl bg-accent">
-          {item.image && (
+      <div
+        className={`mt-6 grid gap-8 md:items-start md:gap-12 ${item.image ? "md:grid-cols-2" : ""}`}
+      >
+        {item.image && (
+          <div className="relative aspect-square w-full overflow-hidden rounded-3xl bg-accent">
             <Image
               src={item.image}
               alt={t(item.name)}
@@ -48,8 +51,8 @@ export function OfferingDetail({
               sizes="(max-width: 768px) 90vw, 40vw"
               className="object-cover"
             />
-          )}
-        </div>
+          </div>
+        )}
 
         <div>
           <h1 className="font-heading text-3xl font-bold tracking-tight text-primary md:text-4xl">
@@ -61,6 +64,29 @@ export function OfferingDetail({
           <p className="mt-4 text-base leading-relaxed text-foreground/75 md:text-lg">
             {t(item.description)}
           </p>
+
+          {bullets.length > 0 && (
+            <div className="mt-8">
+              {item.bulletsTitle && (
+                <h2 className="font-heading text-lg font-bold text-secondary">
+                  {t(item.bulletsTitle)}
+                </h2>
+              )}
+              <ul className="mt-4 space-y-2.5">
+                {bullets.map((bullet) => (
+                  <li
+                    key={bullet}
+                    className="flex items-start gap-2.5 text-base leading-snug text-foreground/75"
+                  >
+                    <span aria-hidden className="mt-0.5 font-bold text-primary">
+                      ✓
+                    </span>
+                    {bullet}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
 
           <a
             href={whatsappHref}

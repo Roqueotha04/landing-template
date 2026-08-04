@@ -42,8 +42,8 @@ interface UiStrings {
     reasonPlaceholder: Localized;
     reasonOptions: {
       executive: Localized;
-      realEstate: Localized;
-      personal: Localized;
+      leaders: Localized;
+      company: Localized;
       other: Localized;
     };
     messageLabel: Localized;
@@ -63,8 +63,10 @@ interface UiStrings {
 export const ui: UiStrings = {
   nav: {
     hero: { es: "Inicio", en: "Home" },
+    presentation: { es: "Quién Soy", en: "About Me" },
     offerings: { es: "Servicios", en: "Services" },
-    about: { es: "Nosotros", en: "About" },
+    about: { es: "Quién Soy", en: "About Me" },
+    whyUs: { es: "Por qué elegirnos", en: "Why Us" },
     booking: { es: "Agendar", en: "Book" },
     contact: { es: "Contacto", en: "Contact" },
     testimonials: { es: "Testimonios", en: "Testimonials" },
@@ -110,9 +112,15 @@ export const ui: UiStrings = {
     reasonLabel: { es: "Motivo de la consulta", en: "Reason for inquiry" },
     reasonPlaceholder: { es: "Elegí una opción...", en: "Select an option..." },
     reasonOptions: {
-      executive: { es: "Coaching Ejecutivo", en: "Executive Coaching" },
-      realEstate: { es: "Coaching Inmobiliario", en: "Real Estate Coaching" },
-      personal: { es: "Life Coaching (Personal)", en: "Life Coaching (Personal)" },
+      executive: {
+        es: "Coaching Ejecutivo Individual",
+        en: "Individual Executive Coaching",
+      },
+      leaders: {
+        es: "Coaching para Líderes y Mandos Medios",
+        en: "Coaching for Leaders and Middle Management",
+      },
+      company: { es: "Coaching para Empresas", en: "Coaching for Companies" },
       other: { es: "Otro", en: "Other" },
     },
     messageLabel: { es: "Mensaje", en: "Message" },
