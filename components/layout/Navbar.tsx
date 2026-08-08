@@ -46,7 +46,7 @@ export function Navbar() {
               className="h-9 w-9 rounded-full ring-2 ring-secondary/40"
             />
           )}
-          <span className="font-heading text-lg font-bold text-primary">
+          <span className="font-heading text-base font-bold text-primary sm:text-lg">
             <span className="sm:hidden">
               {business.logoTextShort ?? business.logoText ?? business.name}
             </span>

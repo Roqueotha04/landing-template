@@ -17,6 +17,11 @@ interface UiStrings {
     viewAll: Localized;
     promoCta: Localized;
   };
+  whyUs: {
+    prev: Localized;
+    next: Localized;
+    goTo: Localized;
+  };
   offeringDetail: {
     back: Localized;
     addToCart: Localized;
@@ -87,6 +92,11 @@ export const ui: UiStrings = {
   offerings: {
     viewAll: { es: "Ver todos", en: "View all" },
     promoCta: { es: "¡Quiero saber más!", en: "I want to know more!" },
+  },
+  whyUs: {
+    prev: { es: "Motivo anterior", en: "Previous reason" },
+    next: { es: "Motivo siguiente", en: "Next reason" },
+    goTo: { es: "Ver motivo", en: "Go to reason" },
   },
   offeringDetail: {
     back: { es: "Volver", en: "Back" },

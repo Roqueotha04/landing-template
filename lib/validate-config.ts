@@ -82,7 +82,15 @@ const configSchema = z.object({
     title: localized,
     eyebrow: localized.optional(),
     body: localizedArray,
-    highlights: z.array(z.object({ value: z.string(), label: localized })).optional(),
+    highlights: z
+      .array(
+        z.object({
+          value: localized,
+          label: localized,
+          icon: z.enum(["shield", "listening", "target"]).optional(),
+        }),
+      )
+      .optional(),
     image: z.string().optional(),
   }),
   whyUs: z.object({
@@ -90,7 +98,14 @@ const configSchema = z.object({
     eyebrow: localized.optional(),
     subtitle: localized.optional(),
     reasons: z
-      .array(z.object({ title: localized, body: localizedArray }))
+      .array(
+        z.object({
+          title: localized,
+          body: localizedArray,
+          bulletsTitle: localized.optional(),
+          bullets: localizedArray.optional(),
+        }),
+      )
       .min(1, "At least one whyUs reason is required"),
     image: z.string().optional(),
   }).optional(),

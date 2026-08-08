@@ -9,9 +9,9 @@ export const siteConfig: SiteConfig = validateConfig({
   business: {
     name: "Consultora Grondona",
     legalName: "Consultora Grondona",
-    logoText: "SG Sebastián Grondona",
-    logoTextShort: "SG",
-    logo: "/logo-grondona.jpeg",
+    logoText: "Sebastián Grondona",
+    logoTextShort: "Sebastián Grondona",
+    logo: "/logo-grondona.png",
     phone: "+54 9 11 2855-5848",
     whatsapp: "5491128555848",
     email: "info@consultoragrondona.com",
@@ -27,12 +27,12 @@ export const siteConfig: SiteConfig = validateConfig({
   },
   hero: {
     title: {
-      es: "Consultora Grondona",
-      en: "Consultora Grondona",
+      es: "Sebastián Grondona",
+      en: "Sebastián Grondona",
     },
     subtitle: {
-      es: "Acompañamiento estratégico y personalizado para potenciar tu desempeño y alcanzar tus metas.",
-      en: "Strategic and personalized support to boost your performance and achieve your goals.",
+      es: "La excelencia del liderazgo comienza con una conversación",
+      en: "Leadership excellence begins with a conversation",
     },
     ctaText: { es: "Agendá tu Sesión", en: "Book your Session" },
     secondaryCtaText: { es: "Conocé los Servicios", en: "Explore Services" },
@@ -212,25 +212,28 @@ export const siteConfig: SiteConfig = validateConfig({
     },
     highlights: [
       {
-        value: "Seguro",
+        value: { es: "Espacio Seguro", en: "Safe Space" },
         label: {
-          es: "Espacio Seguro: Confidencialidad y contención en cada sesión.",
-          en: "Safe Space: Confidentiality and support in every session.",
+          es: "Confidencialidad y contención en cada sesión.",
+          en: "Confidentiality and support in every session.",
         },
+        icon: "shield",
       },
       {
-        value: "Activa",
+        value: { es: "Escucha Activa", en: "Active Listening" },
         label: {
-          es: "Escucha Activa: Comprensión profunda de tus desafíos.",
-          en: "Active Listening: Deep understanding of your challenges.",
+          es: "Comprensión profunda de tus desafíos.",
+          en: "Deep understanding of your challenges.",
         },
+        icon: "listening",
       },
       {
-        value: "Total",
+        value: { es: "Compromiso Total", en: "Total Commitment" },
         label: {
-          es: "Compromiso Total: Acompañamiento enfocado en tus metas.",
-          en: "Total Commitment: Support focused on your goals.",
+          es: "Acompañamiento enfocado en tus metas.",
+          en: "Support focused on your goals.",
         },
+        icon: "target",
       },
     ],
     image: "/Sebastian.png",
@@ -248,9 +251,11 @@ export const siteConfig: SiteConfig = validateConfig({
         },
         body: {
           es: [
+            "En Consultora Grondona creemos que todas las personas tienen el potencial de crecer, superar obstáculos y alcanzar objetivos que les permitan vivir con mayor plenitud, equilibrio y satisfacción.",
             "Nuestro propósito es acompañarte en ese camino de transformación, brindándote un espacio de escucha, reflexión y aprendizaje donde puedas descubrir nuevas posibilidades y convertir tus desafíos en oportunidades de crecimiento.",
           ],
           en: [
+            "At Consultora Grondona we believe that every person has the potential to grow, overcome obstacles and reach goals that allow them to live with greater fulfilment, balance and satisfaction.",
             "Our purpose is to accompany you on that path of transformation, offering you a space for listening, reflection and learning where you can discover new possibilities and turn your challenges into opportunities for growth.",
           ],
         },
@@ -263,9 +268,11 @@ export const siteConfig: SiteConfig = validateConfig({
         body: {
           es: [
             "No existen soluciones universales. Cada proceso de coaching es diseñado de manera personalizada, respetando la historia, los valores, los objetivos y las necesidades de cada cliente.",
+            "Trabajamos contigo para que encuentres tus propias respuestas y desarrolles herramientas que te permitan avanzar con confianza hacia el futuro que deseas construir.",
           ],
           en: [
             "There are no universal solutions. Every coaching process is designed in a personalized way, respecting the history, values, objectives and needs of each client.",
+            "We work with you so that you find your own answers and develop tools that let you move forward with confidence towards the future you want to build.",
           ],
         },
       },
@@ -297,8 +304,79 @@ export const siteConfig: SiteConfig = validateConfig({
           ],
         },
       },
+      {
+        title: {
+          es: "Porque acompañamos procesos de crecimiento integral",
+          en: "Because we support integral growth processes",
+        },
+        body: { es: [], en: [] },
+        bulletsTitle: {
+          es: "Trabajamos en aspectos como:",
+          en: "We work on aspects such as:",
+        },
+        bullets: {
+          es: [
+            "Desarrollo personal.",
+            "Autoconocimiento.",
+            "Liderazgo.",
+            "Comunicación efectiva.",
+            "Gestión de emociones.",
+            "Confianza y autoestima.",
+            "Definición de objetivos.",
+            "Toma de decisiones.",
+            "Equilibrio entre vida personal y profesional.",
+            "Desarrollo de hábitos saludables.",
+            "Motivación y propósito de vida.",
+          ],
+          en: [
+            "Personal development.",
+            "Self-knowledge.",
+            "Leadership.",
+            "Effective communication.",
+            "Emotional management.",
+            "Confidence and self-esteem.",
+            "Goal setting.",
+            "Decision-making.",
+            "Balance between personal and professional life.",
+            "Building healthy habits.",
+            "Motivation and life purpose.",
+          ],
+        },
+      },
+      {
+        title: {
+          es: "Porque vivimos los valores que promovemos",
+          en: "Because we live the values we promote",
+        },
+        body: {
+          es: [
+            "La ética, la responsabilidad, el respeto, la confidencialidad y el compromiso son pilares fundamentales de nuestra forma de trabajar.",
+            "Creemos que una relación de confianza es la base para lograr transformaciones profundas y duraderas.",
+          ],
+          en: [
+            "Ethics, responsibility, respect, confidentiality and commitment are fundamental pillars of the way we work.",
+            "We believe that a relationship built on trust is the foundation for achieving deep and lasting transformations.",
+          ],
+        },
+      },
+      {
+        title: {
+          es: "Porque entendemos que el crecimiento es un camino continuo",
+          en: "Because we understand that growth is a continuous path",
+        },
+        body: {
+          es: [
+            "Así como en la naturaleza cada paso lleva a una nueva cima, el desarrollo personal es un proceso permanente de aprendizaje y evolución.",
+            "Inspirados en valores como la perseverancia, la disciplina, el esfuerzo y la superación, acompañamos a nuestros clientes a avanzar con claridad y determinación hacia sus metas.",
+          ],
+          en: [
+            "Just as in nature every step leads to a new summit, personal development is an ongoing process of learning and evolution.",
+            "Inspired by values such as perseverance, discipline, effort and self-improvement, we support our clients in moving towards their goals with clarity and determination.",
+          ],
+        },
+      },
     ],
-    image: "/logo-grondona.jpeg",
+    image: "/logo-grondona.png",
   },
   booking: {
     eyebrow: {

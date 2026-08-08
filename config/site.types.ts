@@ -122,6 +122,8 @@ export interface PresentationContent {
 export interface WhyUsReason {
   title: Localized;
   body: Localized<string[]>;
+  bulletsTitle?: Localized;
+  bullets?: Localized<string[]>;
 }
 
 export interface WhyUsContent {
@@ -132,11 +134,21 @@ export interface WhyUsContent {
   image?: string;
 }
 
+/** Icons available for the about highlights, rendered by `AboutSplit`. */
+export type HighlightIcon = "shield" | "listening" | "target";
+
+export interface AboutHighlight {
+  /** Short headline of the highlight, e.g. "Espacio Seguro". */
+  value: Localized;
+  label: Localized;
+  icon?: HighlightIcon;
+}
+
 export interface AboutContent {
   title: Localized;
   eyebrow?: Localized;
   body: Localized<string[]>;
-  highlights?: { value: string; label: Localized }[];
+  highlights?: AboutHighlight[];
   image?: string;
 }
 
