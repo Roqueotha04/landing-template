@@ -401,10 +401,9 @@ export const siteConfig: SiteConfig = validateConfig({
     },
     perks: [
       { es: "Sesión online", en: "Online session" },
-      { es: "30 minutos", en: "30 minutes" },
-      { es: "Confirmación inmediata", en: "Instant confirmation" },
+      { es: "1 hora", en: "1 hour" },
     ],
-    calLink: "https://cal.com/roque-othacehe-xdezkn",
+    calLink: "https://cal.com/consultoragrondona",
   },
   contact: {
     title: {

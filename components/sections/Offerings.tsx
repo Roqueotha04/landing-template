@@ -27,6 +27,7 @@ export function Offerings() {
         subtitle={offerings.subtitle}
         align="center"
         tone="onLight"
+        titleVariant="underline"
       />
 
       <div className="mx-auto mt-12 grid max-w-5xl gap-10 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] md:items-center md:gap-14">
