@@ -41,6 +41,7 @@ export const siteConfig: SiteConfig = validateConfig({
   offerings: {
     kind: "services",
     title: { es: "Nuestros Servicios", en: "Our Services" },
+    subtitle: { es: "Coaching Motivacional", en: "Motivational Coaching" },
     items: [
       {
         name: {

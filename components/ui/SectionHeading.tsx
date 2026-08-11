@@ -78,9 +78,14 @@ export function SectionHeading({
           {t(title)}
         </h2>
       )}
-      {subtitle && (
-        <p className={`mt-4 max-w-xl text-base md:text-lg ${styles.subtitle}`}>{t(subtitle)}</p>
-      )}
+      {subtitle &&
+        (titleVariant === "underline" ? (
+          <p className="mt-5 font-heading text-xl font-medium italic text-primary-deep md:text-2xl">
+            {t(subtitle)}
+          </p>
+        ) : (
+          <p className={`mt-4 max-w-xl text-base md:text-lg ${styles.subtitle}`}>{t(subtitle)}</p>
+        ))}
     </div>
   );
 }

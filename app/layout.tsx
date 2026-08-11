@@ -7,8 +7,11 @@ import { MotionProvider } from "@/components/providers/MotionProvider";
 import { JsonLd } from "@/components/seo/JsonLd";
 
 // Keep these imports in sync with brand.headingFont / brand.bodyFont in site.config.ts
+// Italic is loaded explicitly: next/font defaults to normal only, and the
+// services subtitle would otherwise fall back to a synthesised oblique.
 const headingFont = Playfair_Display({
   subsets: ["latin"],
+  style: ["normal", "italic"],
   variable: "--font-heading-face",
   display: "swap",
 });
